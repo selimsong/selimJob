@@ -10,7 +10,7 @@
     </div>
     <ul class="nav nav-list collapse in" id="accounts-menu">
       <li><a href="account.php">帐号列表</a></li>
-      <li><a href="account.php?act=add">帐号添加</a></li>
+      <li><a href="account.php?act=add">添加帐号</a></li>
       <li><a href="reset-password.html">Reset Password</a></li>
     </ul>
     <div data-target="#settings-menu" data-toggle="collapse" class="nav-header"><i class="icon-exclamation-sign"></i>Error Pages</div>

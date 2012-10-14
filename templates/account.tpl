@@ -12,7 +12,7 @@
       </div><!-- span3 e -->
       
        <div class="span9"><!-- span9 s -->
-           <h1 class="page-title">人员列表</h1>
+           <h1 class="page-title">帐号列表</h1>
             <div class="well">
                 <ul class="nav nav-tabs">
                   <li class="active"><a data-toggle="tab" href="#home">Profile</a></li>
