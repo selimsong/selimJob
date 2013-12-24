@@ -10,5 +10,6 @@ $MsgTyp       = $xml->MsgTyp;
 $Content      = $xml->Content;
 if(1){
 file_put_contents("wei_post.txt",  $_POST, FILE_APPEND);
+file_put_contents("wei_post2.txt",  $post_data, FILE_APPEND);
 file_put_contents("wei_test.txt",  $toUserName.'-'.$FromUserName.$MsgTyp.$Content, FILE_APPEND);
 }
