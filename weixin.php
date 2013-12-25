@@ -12,13 +12,18 @@ $msgId        = $xml->MsgId;
 //subscribe event
 if ($msgType == 'event') {
 	if ($xml->Event == 'subscribe') {
-		file_put_contents("wei_post2.txt",  $post_data, FILE_APPEND);
 		replyText($fromUserName, $toUserName, '欢迎加入统一冰红茶，赶快上传一张你跑步的照片（竖版）就可以制作一张属于你自己的#祝福贺卡#海报，快来试试！');
-		file_put_contents("wei_post3.txt",  $post_data, FILE_APPEND);
+		file_put_contents("wei_subscribe.txt",  $post_data, FILE_APPEND);
 	}
 	exit();
 }
 
+if ($msgType == 'text') {
+	
+	 replyText($fromUserName, $toUserName, '欢迎加入统一冰红茶， ，发送照片吧！');
+     file_put_contents("wei_text.txt",  $post_data, FILE_APPEND);
+	exit();
+}
 
 
 if(1){
