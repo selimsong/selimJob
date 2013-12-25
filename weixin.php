@@ -20,7 +20,7 @@ if ($msgType == 'event') {
 
 if ($msgType == 'text') {
 	
-	 replyText($fromUserName, $toUserName, '欢迎加入统一冰红茶， ，发送照片吧！');
+	 replyText($fromUserName, $toUserName, 'welcome to our wold');
     
 	exit();
 }
