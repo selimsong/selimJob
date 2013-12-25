@@ -23,11 +23,11 @@ if ($msgType == 'text') {
 	 $collection = $db->users;
      $_count  = $collection->count(array('sendUserId'=> "$sendUserId"));
      file_put_contents("_count.txt",  $_count, FILE_APPEND);
-	// if($_count<1){
+	 if($_count<1){
 		 $doc = array('developerId' => "$developerId", 'sendUserId' => "$sendUserId", 'content'=> "$content", 'msgType'=>"$msgType" ,'flg' => 'text', 'updateData' => date('d'), 'updatetime' => time());
 		 $collection->insert($doc);
-		 replyText($sendUserId, $developerId, '发送“贺卡”，参加#2014，心愿潮动#贺卡，活动。');
-	// }
+	 }
+	  replyText($sendUserId, $developerId, '发送“贺卡”，参加#2014，心愿潮动#贺卡，活动。');
 	 exit();
 
 }
