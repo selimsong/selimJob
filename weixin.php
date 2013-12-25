@@ -45,7 +45,7 @@ if ($msgType == 'image') {
 	 $mediaId = $xml->mediaId;
 	 
 	 //if($_count>0){
-	   replyText($sendUserId, $developerId, '感谢您上传的照片');
+	   replyText($sendUserId, $developerId, ' 我们将恢复您的贺卡，活动。');
 	   file_put_contents('2.jpg', file_get_contents($picUrl));
 	 file_put_contents("img.txt",  $_count.'----'.$picUrl.'-------'.$mediaId, FILE_APPEND);
 	 //}
