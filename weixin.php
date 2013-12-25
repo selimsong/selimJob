@@ -21,7 +21,7 @@ if ($msgType == 'event') {
 if ($msgType == 'text') {
 	
 	 replyText($fromUserName, $toUserName, '欢迎加入统一冰红茶， ，发送照片吧！');
-     file_put_contents("wei_text.txt",  $post_data, FILE_APPEND);
+    
 	exit();
 }
 
@@ -44,5 +44,6 @@ function replyText($fromUserName, $toUserName, $text)
 				</xml>";
 				
 	$resultStr = sprintf($textTpl, $toUserName, $fromUserName, time(), $text);
+	 file_put_contents("wei_text.txt",  $resultStr, FILE_APPEND);
 	echo $resultStr;
 }
