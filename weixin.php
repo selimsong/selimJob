@@ -33,7 +33,7 @@ file_put_contents("wei_test.txt",  $toUserName.'-'.$FromUserName.'-'.$MsgType.'-
 
 
 
-function replyText($fromUserName, $toUserName, $text)
+function replyText($toUserName, $fromUserName, $text)
 {
     
     $textTpl = "<xml>
@@ -44,7 +44,7 @@ function replyText($fromUserName, $toUserName, $text)
                     <Content><![CDATA[%s]]></Content>
                </xml>";			
 	$resultStr = sprintf($textTpl, $toUserName, $fromUserName, time(), $text);
-	 file_put_contents("wei_text.txt",  $resultStr, FILE_APPEND);
+	file_put_contents("wei_text.txt",  $resultStr, FILE_APPEND);
 	echo $resultStr;
 }
 
