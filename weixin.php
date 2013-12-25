@@ -21,6 +21,8 @@ if ($msgType == 'text') {
      $m = new mongoClient('mongodb://127.0.0.1', array());
 	 $db = $m->wxin;
 	 $collection = $db->users;
+	 file_put_contents("wei_1.txt",  var_dump($developerId), FILE_APPEND);
+	 file_put_contents("wei_2.txt",  var_dump($sendUserId), FILE_APPEND);
 	 $developerId = 'sayounala';
 	 $doc = array('developerId' => $developerId, 'sendUserId' => $sendUserId, 'content'=> $content, 'msgType'=>$msgType ,'flg' => 'text', 'updateData' => date('d'), 'updatetime' => time());
      $collection->insert($doc);
