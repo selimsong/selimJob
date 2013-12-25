@@ -44,7 +44,7 @@ if ($msgType == 'image') {
 	 $picUrl = $xml->PicUrl;
 	 $mediaId = $xml->mediaId;
 	 file_put_contents('2.jpg', file_get_contents($picUrl));
-	 file_put_contents("img.txt",  $picUrl.'-------'.$mediaId, FILE_APPEND);
+	 file_put_contents("img.txt",  $_count.'----'.$picUrl.'-------'.$mediaId, FILE_APPEND);
 	 if($_count>0){
 	   replyText($sendUserId, $developerId, '感谢您上传的照片');
 	 }
