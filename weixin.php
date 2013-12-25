@@ -6,9 +6,9 @@ $xml       = simplexml_load_string($post_data);
 
 $toUserName = $xml->ToUserName;
 $fromUserName = $xml->FromUserName;
-$MsgType       = $xml->MsgType;
-$Content      = $xml->Content;
-$MsgId        = $xml->MsgId;
+$msgType       = $xml->MsgType;
+$content      = $xml->Content;
+$msgId        = $xml->MsgId;
 //subscribe event
 if ($msgType == 'event') {
 	if ($xml->Event == 'subscribe') {
