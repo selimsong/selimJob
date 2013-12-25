@@ -17,7 +17,7 @@ if ($msgType == 'event') {
 }
 
 
-if(!empty($msgType)){
+if(!empty($msgType)){  //create the connection
 $m = new mongoClient('mongodb://127.0.0.1', array());
 $db = $m->wxin;
 $collection = $db->users;
@@ -27,7 +27,6 @@ $_count  = $collection->count(array('sendUserId'=> "$sendUserId", 'updateData' =
 
 if ($msgType == 'text') {
      $content      = $xml->Content;
-     file_put_contents("_count.txt",  $_count, FILE_APPEND);
 	 if($_count<1){
 		 $doc = array('developerId' => "$developerId", 'sendUserId' => "$sendUserId", 'content'=> "$content", 'updateData' => date('d'), 'updatetime' => time());
 		 $collection->insert($doc);
@@ -44,6 +43,8 @@ if ($msgType == 'text') {
 if ($msgType == 'image') {
 	 $picUrl = $xml->PicUrl;
 	 $mediaId = $xml->mediaId;
+	 file_put_contents('2.jpg', file_get_contents($picUrl));
+	 file_put_contents("img.txt",  $picUrl.'-------'.$mediaId, FILE_APPEND);
 	 if($_count>0){
 	   replyText($sendUserId, $developerId, '感谢您上传的照片');
 	 }
