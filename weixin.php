@@ -68,13 +68,13 @@ function replyTextAndImg($toUserName, $fromUserName, $title, $description, $picU
 					<ArticleCount>%s</ArticleCount>
                     <Articles>
 					<item>
-					<Title><![CDATA[%s]]></Title> 
+					
 					<Description><![CDATA[%s]]></Description>
 					<PicUrl><![CDATA[%s]]></PicUrl>
 					<Url><![CDATA[%s]]></Url>
 					</item>
 					</Articles>
                </xml>";			
-	$resultStr = sprintf($textTpl, $toUserName, $fromUserName, time(), $count, $title, $description, $picUrl, $url);
+	$resultStr = sprintf($textTpl, $toUserName, $fromUserName, time(), $count,  $description, $picUrl, $url);
 	echo $resultStr;
 }
