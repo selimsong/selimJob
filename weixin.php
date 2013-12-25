@@ -22,7 +22,8 @@ if ($msgType == 'event') {
 }
 
 if ($msgType == 'text') {
-	$description = '制作你的#2014,心愿潮动#贺卡<a href="http://gow.nike.com.cn/free/runclub/show/material/NIKE/312"> 仅需三步，轻松制作</a>';
+	$description = '制作你的#2014,心愿潮动#贺卡
+	仅需三步，轻松制作';
 	replyTextAndImg($sendUserId, $developerId, '制作你的#2014,心愿潮动#贺卡', $description, 'http://115.29.49.54/intro.jpg', '');
 	// replyText($sendUserId, $developerId, '发送“贺卡”，参加#2014，心愿潮动#贺卡，活动。');
 	 exit();
