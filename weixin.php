@@ -11,7 +11,7 @@ $msgId        = $xml->MsgId;
 //subscribe event
 if ($msgType == 'event') {
 	if ($xml->Event == 'subscribe') {
-		replyText($sendUserId, $developerId, '发送“贺卡”，参加#2014，心愿潮动#贺卡，活动。1.发送  贺卡   参加活动
+		replyText($sendUserId, $developerId, '制作你的#2014,心愿潮动#贺卡   参加活动
      2.上传照片
      3.发送祝福语
      4.收到祝福语言
@@ -32,7 +32,9 @@ if ($msgType == 'text') {
 
 
 if ($msgType == 'image') {
-	 replyText($sendUserId, $developerId, '感谢您上传的照片');
+
+	 replyTextAndImg($sendUserId, $developerId, '标题', '', '', '')
+	// replyText($sendUserId, $developerId, '感谢您上传的照片');
      file_put_contents("wei_post.txt",  $post_data, FILE_APPEND);
 	 exit();
 }
@@ -59,3 +61,23 @@ function replyText($toUserName, $fromUserName, $text)
 	echo $resultStr;
 }
 
+function replyTextAndImg($toUserName, $fromUserName, $title, $description, $picUrl='', $url='', $count=1)
+{
+    $textTpl = "<xml>
+	                <ToUserName><![CDATA[%s]]></ToUserName>
+	                <FromUserName><![CDATA[%s]]></FromUserName>
+                    <CreateTime>%s</CreateTime>
+                    <MsgType><![CDATA[news]]></MsgType>
+					<ArticleCount>%s</ArticleCount>
+                    <Articles>
+					<item>
+					<Title><![CDATA[%s]]></Title> 
+					<Description><![CDATA[%s]]></Description>
+					<PicUrl><![CDATA[%s]]></PicUrl>
+					<Url><![CDATA[%s]]></Url>
+					</item>
+					</Articles>
+               </xml>";			
+	$resultStr = sprintf($textTpl, $toUserName, $fromUserName, time(), $count, $title, $description, $picUrl, $url);
+	echo $resultStr;
+}
