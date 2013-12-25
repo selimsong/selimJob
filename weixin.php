@@ -53,7 +53,9 @@ if ($msgType == 'image') {
 	$output = curl_exec($ch);
 	$content_type = curl_getinfo($ch, CURLINFO_CONTENT_TYPE);
 	curl_close($ch);
-	file_put_contents('2.txt', $content_type);
+	
+	$content_type_arr = explode('/', $content_type);
+	file_put_contents('2.txt', $content_type.$content_type_arr[1]);
 	if('image/jpeg' == $content_type){
 	     $ret = file_put_contents('4.jpg', $output);
 
