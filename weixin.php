@@ -18,7 +18,11 @@ if ($msgType == 'event') {
 }
 
 if ($msgType == 'text') {
-    
+     $m = new mongoClient('mongodb://127.0.0.1', array());
+	 $db = $m->wxin;
+	 $collection = $db->users;
+	 $doc = array('developerId' => $developerId, 'sendUserId' => $sendUserId, 'content'=> $content, 'msgType'=>$msgType ,'flg' => 'text', 'updateData' => date('d'), 'updatetime' => time());
+     $collection->insert($doc);
 	 replyText($sendUserId, $developerId, '发送“贺卡”，参加#2014，心愿潮动#贺卡，活动。');
 	 exit();
 }
