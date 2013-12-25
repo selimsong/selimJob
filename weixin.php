@@ -44,29 +44,19 @@ if ($msgType == 'image') {
 	 $picUrl = $xml->PicUrl;
 	 $mediaId = $xml->mediaId;
 	 
-	 //if($_count>0){
+	if($_count>0){
 	   replyText($sendUserId, $developerId, ' 我们将恢复您的贺卡，活动。');
-	 //
+	 
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL, $picUrl);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	$output = curl_exec($ch);
 	$content_type = curl_getinfo($ch, CURLINFO_CONTENT_TYPE);
 	curl_close($ch);
-	
 	$content_type_arr = explode('/', $content_type);
-	file_put_contents('2.txt', $content_type.$content_type_arr[1]);
-	if('image/jpeg' == $content_type){
-	     $ret = file_put_contents('4.jpg', $output);
-
-	}
-	
+	$ret = file_put_contents($sendUserId.'.'.$content_type_arr[1], $output); // save picture
 	unset($output);
-
-
-
-	 file_put_contents("img.txt",  $_count.'----'.$picUrl.'-------'.$mediaId, FILE_APPEND);
-	 //}
+	}
      //file_put_contents("wei_post.txt",  $post_data, FILE_APPEND);
 	 exit();
 }
