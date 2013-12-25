@@ -1,6 +1,6 @@
 <?php
-//include_once("validate.php");
 
+//include_once("validate.php");
 $post_data = $GLOBALS["HTTP_RAW_POST_DATA"];
 $xml       = simplexml_load_string($post_data);
 
@@ -12,7 +12,7 @@ $msgId        = $xml->MsgId;
 //subscribe event
 if ($msgType == 'event') {
 	if ($xml->Event == 'subscribe') {
-		replyText($fromUserName, $toUserName, '»¶Ó­¼ÓÈëÍ³Ò»±ùºì²è£¬¸Ï¿ìÉÏ´«Ò»ÕÅÄãÅÜ²½µÄÕÕÆ¬£¨Êú°æ£©¾Í¿ÉÒÔÖÆ×÷Ò»ÕÅÊôÓÚÄã×Ô¼ºµÄ#×£¸£ºØ¿¨#º£±¨£¬¿ìÀ´ÊÔÊÔ£¡');
+		replyText($fromUserName, $toUserName, 'æ¬¢è¿åŠ å…¥ç»Ÿä¸€å†°çº¢èŒ¶ï¼Œèµ¶å¿«ä¸Šä¼ ä¸€å¼ ä½ è·‘æ­¥çš„ç…§ç‰‡ï¼ˆç«–ç‰ˆï¼‰å°±å¯ä»¥åˆ¶ä½œä¸€å¼ å±äºä½ è‡ªå·±çš„#ç¥ç¦è´ºå¡#æµ·æŠ¥ï¼Œå¿«æ¥è¯•è¯•ï¼');
 		file_put_contents("wei_subscribe.txt",  $post_data, FILE_APPEND);
 	}
 	exit();
@@ -35,15 +35,16 @@ file_put_contents("wei_test.txt",  $toUserName.'-'.$FromUserName.'-'.$MsgType.'-
 
 function replyText($fromUserName, $toUserName, $text)
 {
-	$textTpl = "<xml>
-				<ToUserName><![CDATA[%s]]></ToUserName>
-				<FromUserName><![CDATA[%s]]></FromUserName>
-				<CreateTime>%s</CreateTime>
-				<MsgType><![CDATA[text]]></MsgType>
-				<Content><![CDATA[%s]]></Content>
-				</xml>";
-				
+    
+    $textTpl = "<xml>
+	                <ToUserName><![CDATA[%s]]></ToUserName>
+	                <FromUserName><![CDATA[%s]]></FromUserName>
+                    <CreateTime>%s</CreateTime>
+                    <MsgType><![CDATA[text]]></MsgType>
+                    <Content><![CDATA[%s]]></Content>
+               </xml>";			
 	$resultStr = sprintf($textTpl, $toUserName, $fromUserName, time(), $text);
 	 file_put_contents("wei_text.txt",  $resultStr, FILE_APPEND);
 	echo $resultStr;
 }
+
