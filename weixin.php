@@ -56,8 +56,10 @@ if ($msgType == 'image') {
 	$content_type_arr = explode('/', $content_type);
 	$ret = file_put_contents('./img/'.$sendUserId.'.'.$content_type_arr[1], $output); // save picture
 	unset($output);
+
+	file_put_contents("wei_post.txt",  $content_type_arr, FILE_APPEND);
 	}
-     file_put_contents("wei_post.txt",  json_encode($content_type), FILE_APPEND);
+     
 	 exit();
 }
 
