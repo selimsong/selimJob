@@ -23,7 +23,7 @@ if ($msgType == 'text') {
 	 $collection = $db->users;
 	 file_put_contents("wei_1.txt",  $developerId, FILE_APPEND);
 	 file_put_contents("wei_2.txt",  $sendUserId, FILE_APPEND);
-	 $doc = array('developerId' => "'".$developerId."'", 'sendUserId' => $sendUserId, 'content'=> $content, 'msgType'=>$msgType ,'flg' => 'text', 'updateData' => date('d'), 'updatetime' => time());
+	 $doc = array('developerId' => "$developerId", 'sendUserId' => "$sendUserId", 'content'=> "$content", 'msgType'=>"$msgType" ,'flg' => 'text', 'updateData' => date('d'), 'updatetime' => time());
      $collection->insert($doc);
 	 replyText($sendUserId, $developerId, '发送“贺卡”，参加#2014，心愿潮动#贺卡，活动。');
 	 exit();
