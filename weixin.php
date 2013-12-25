@@ -21,7 +21,7 @@ if ($msgType == 'text') {
      $m = new mongoClient('mongodb://127.0.0.1', array());
 	 $db = $m->wxin;
 	 $collection = $db->users;
-     $_count  = $collection->count(array('sendUserId'=> $sendUserId));
+     $_count  = $collection->count(array('sendUserId'=> "$sendUserId"));
      file_put_contents("_count.txt",  $_count, FILE_APPEND);
 	// if($_count<1){
 		 $doc = array('developerId' => "$developerId", 'sendUserId' => "$sendUserId", 'content'=> "$content", 'msgType'=>"$msgType" ,'flg' => 'text', 'updateData' => date('d'), 'updatetime' => time());
