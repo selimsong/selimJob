@@ -94,7 +94,7 @@ function replyTextAndImg($toUserName, $fromUserName, $title, $description, $picU
 					</item>
 					</Articles>
                </xml>";			
-	$resultStr = sprintf($textTpl, $toUserName, $fromUserName, time(),  $title, $description, $picUrl, $url,$title, $description, '', '');
+	$resultStr = sprintf($textTpl, $toUserName, $fromUserName, time(),  $title, $description, $picUrl, $url,$title, '我们飞啦', '', '');
   
   
   
