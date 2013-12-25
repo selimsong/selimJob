@@ -5,14 +5,14 @@ $post_data = $GLOBALS["HTTP_RAW_POST_DATA"];
 $xml       = simplexml_load_string($post_data);
 
 $toUserName = $xml->ToUserName;
-$FromUserName = $xml->FromUserName;
+$fromUserName = $xml->FromUserName;
 $MsgType       = $xml->MsgType;
 $Content      = $xml->Content;
 $MsgId        = $xml->MsgId;
 //subscribe event
 if ($msgType == 'event') {
-	if ($postObj->Event == 'subscribe') {
-		replyText($toUserName, $FromUserName, '欢迎加入统一冰红茶，赶快上传一张你跑步的照片（竖版）就可以制作一张属于你自己的#祝福贺卡#海报，快来试试！');
+	if ($xml->Event == 'subscribe') {
+		replyText($fromUserName, $toUserName, '欢迎加入统一冰红茶，赶快上传一张你跑步的照片（竖版）就可以制作一张属于你自己的#祝福贺卡#海报，快来试试！');
 	}
 	exit();
 }
@@ -26,7 +26,7 @@ file_put_contents("wei_test.txt",  $toUserName.'-'.$FromUserName.'-'.$MsgType.'-
 
 
 
-function replyText($wxSignal, $username, $text)
+function replyText($fromUserName, $toUserName, $text)
 {
 	$textTpl = "<xml>
 				<ToUserName><![CDATA[%s]]></ToUserName>
@@ -36,6 +36,6 @@ function replyText($wxSignal, $username, $text)
 				<Content><![CDATA[%s]]></Content>
 				</xml>";
 				
-	$resultStr = sprintf($textTpl, $username, $wxSignal, time(), $text);
+	$resultStr = sprintf($textTpl, $toUserName, $fromUserName, time(), $text);
 	echo $resultStr;
 }
