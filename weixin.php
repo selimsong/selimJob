@@ -24,7 +24,7 @@ if ($msgType == 'text') {
 
 
 if ($msgType == 'image') {
-	 replyText($sendUserId, $developerId, '欢迎加入统一冰红茶, 上传照片吧');
+	 replyText($sendUserId, $developerId, '感谢您上传的照片');
      file_put_contents("wei_post.txt",  $post_data, FILE_APPEND);
 	 exit();
 }
