@@ -1,6 +1,6 @@
 <?php
 $m = new mongoClient('mongodb://127.0.0.1', array());
-$db = $m->weix;
+$db = $m->wxin;
 $collection = $db->users;
 $doc = array('messageId' => rand(0, 100), 'openid' => rand(0, 100), 'updateData' => date('d'));
 $collection->insert($doc);

@@ -46,7 +46,7 @@ if ($msgType == 'image') {
 	 
 	 //if($_count>0){
 	   replyText($sendUserId, $developerId, ' 我们将恢复您的贺卡，活动。');
-	   //file_put_contents('2.jpg', file_get_contents($picUrl));
+	 file_put_contents('2.jpg', file_get_contents($picUrl));
 	 file_put_contents("img.txt",  $_count.'----'.$picUrl.'-------'.$mediaId, FILE_APPEND);
 	 //}
      //file_put_contents("wei_post.txt",  $post_data, FILE_APPEND);
