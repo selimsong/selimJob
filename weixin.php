@@ -1,5 +1,4 @@
 <?php
-
 //include_once("validate.php");
 $post_data = $GLOBALS["HTTP_RAW_POST_DATA"];
 $xml       = simplexml_load_string($post_data);
@@ -18,12 +17,18 @@ if ($msgType == 'event') {
 	exit();
 }
 
-if ($msgType == 'text') {
-	
+if ($msgType == 'text') {	
 	 replyText($sendUserId, $developerId, '欢迎加入统一冰红茶, 上传照片吧');
-    
-	exit();
+	 exit();
 }
+
+
+if ($msgType == 'image') {
+	 replyText($sendUserId, $developerId, '欢迎加入统一冰红茶, 上传照片吧');
+     file_put_contents("wei_post.txt",  $post_data, FILE_APPEND);
+	 exit();
+}
+
 
 
 if(1){
