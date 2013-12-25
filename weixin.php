@@ -57,7 +57,7 @@ if ($msgType == 'image') {
 	$ret = file_put_contents('./img/'.$sendUserId.'.'.$content_type_arr[1], $output); // save picture
 	unset($output);
 	}
-     //file_put_contents("wei_post.txt",  $post_data, FILE_APPEND);
+     file_put_contents("wei_post.txt",  json_encode($content_type), FILE_APPEND);
 	 exit();
 }
 
