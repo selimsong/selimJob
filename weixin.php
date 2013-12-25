@@ -6,7 +6,6 @@ $xml       = simplexml_load_string($post_data);
 $developerId  = $xml->ToUserName;
 $sendUserId   = $xml->FromUserName;
 $msgType      = $xml->MsgType;
-$content      = $xml->Content;
 $msgId        = $xml->MsgId;
 //subscribe event
 if ($msgType == 'event') {
@@ -17,25 +16,38 @@ if ($msgType == 'event') {
 	exit();
 }
 
+
+if(!empty($msgType)){
+$m = new mongoClient('mongodb://127.0.0.1', array());
+$db = $m->wxin;
+$collection = $db->users;
+$_count  = $collection->count(array('sendUserId'=> "$sendUserId", 'updateData' => date('d')));
+}
+
+
 if ($msgType == 'text') {
-     $m = new mongoClient('mongodb://127.0.0.1', array());
-	 $db = $m->wxin;
-	 $collection = $db->users;
-     $_count  = $collection->count(array('sendUserId'=> "$sendUserId"));
+     $content      = $xml->Content;
      file_put_contents("_count.txt",  $_count, FILE_APPEND);
 	 if($_count<1){
-		 $doc = array('developerId' => "$developerId", 'sendUserId' => "$sendUserId", 'content'=> "$content", 'msgType'=>"$msgType" ,'flg' => 'text', 'updateData' => date('d'), 'updatetime' => time());
+		 $doc = array('developerId' => "$developerId", 'sendUserId' => "$sendUserId", 'content'=> "$content", 'updateData' => date('d'), 'updatetime' => time());
 		 $collection->insert($doc);
+	 }else{
+	     $newContent  = array('$set' => array('content' => "$content"));
+         $collection->update(array('sendUserId' => "$sendUserId", 'updateData' => date('d')),  $newContent);
 	 }
-	  replyText($sendUserId, $developerId, '发送“贺卡”，参加#2014，心愿潮动#贺卡，活动。');
+	 replyText($sendUserId, $developerId, '发送“贺卡”，参加#2014，心愿潮动#贺卡，活动。');
 	 exit();
 
 }
 
 
 if ($msgType == 'image') {
-	 replyText($sendUserId, $developerId, '感谢您上传的照片');
-     file_put_contents("wei_post.txt",  $post_data, FILE_APPEND);
+	 $picUrl = $xml->PicUrl;
+	 $mediaId = $xml->mediaId;
+	 if($_count>0){
+	   replyText($sendUserId, $developerId, '感谢您上传的照片');
+	 }
+     //file_put_contents("wei_post.txt",  $post_data, FILE_APPEND);
 	 exit();
 }
 
