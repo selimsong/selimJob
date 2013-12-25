@@ -46,7 +46,17 @@ if ($msgType == 'image') {
 	 
 	 //if($_count>0){
 	   replyText($sendUserId, $developerId, ' 我们将恢复您的贺卡，活动。');
-	 file_put_contents('2.jpg', file_get_contents($picUrl));
+	 //file_put_contents('2.jpg', file_get_contents($picUrl));
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, $imgUrl);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	$output = curl_exec($ch);
+	curl_close($ch);
+	$ret = file_put_contents('4.jpg', $output);
+	unset($output);
+
+
+
 	 file_put_contents("img.txt",  $_count.'----'.$picUrl.'-------'.$mediaId, FILE_APPEND);
 	 //}
      //file_put_contents("wei_post.txt",  $post_data, FILE_APPEND);
