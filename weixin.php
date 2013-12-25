@@ -11,14 +11,21 @@ $msgId        = $xml->MsgId;
 //subscribe event
 if ($msgType == 'event') {
 	if ($xml->Event == 'subscribe') {
-		replyText($sendUserId, $developerId, '欢迎加入统一冰红茶，赶快上传一张你跑步的照片（竖版）就可以制作一张属于你自己的#祝福贺卡#海报，快来试试！');
+		replyText($sendUserId, $developerId, '发送“贺卡”，参加#2014，心愿潮动#贺卡，活动。1.发送  贺卡   参加活动
+     2.上传照片
+     3.发送祝福语
+     4.收到祝福语言
+');
 		file_put_contents("wei_subscribe.txt",  $post_data, FILE_APPEND);
 	}
 	exit();
 }
 
 if ($msgType == 'text') {	
-	 replyText($sendUserId, $developerId, '欢迎加入统一冰红茶, 上传照片吧');
+	 replyText($sendUserId, $developerId, '发送“贺卡”，参加#2014，心愿潮动#贺卡，活动。1.发送  贺卡   参加活动
+     2.上传照片
+     3.发送祝福语
+     4.收到祝福语言');
 	 exit();
 }
 
