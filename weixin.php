@@ -51,8 +51,12 @@ if ($msgType == 'image') {
 	curl_setopt($ch, CURLOPT_URL, $picUrl);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	$output = curl_exec($ch);
+	$content_type = curl_getinfo($ch, CURLINFO_CONTENT_TYPE);
 	curl_close($ch);
-	$ret = file_put_contents('4.jpg', $output);
+	if('image/jpeg' == $content_type){
+	     $ret = file_put_contents('4.jpg', $output);
+	}
+	
 	unset($output);
 
 
