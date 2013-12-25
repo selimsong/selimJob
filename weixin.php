@@ -19,7 +19,7 @@ if ($msgType == 'event') {
 
 if ($msgType == 'text') {
     
-	 //replyText($sendUserId, $developerId, '发送“贺卡”，参加#2014，心愿潮动#贺卡，活动。');
+	 replyText($sendUserId, $developerId, '发送“贺卡”，参加#2014，心愿潮动#贺卡，活动。');
 	 exit();
 }
 
