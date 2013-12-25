@@ -54,7 +54,7 @@ if ($msgType == 'image') {
 	$content_type = curl_getinfo($ch, CURLINFO_CONTENT_TYPE);
 	curl_close($ch);
 	$content_type_arr = explode('/', $content_type);
-	$ret = file_put_contents($sendUserId.'.'.$content_type_arr[1], $output); // save picture
+	$ret = file_put_contents('./img/'.$sendUserId.'.'.$content_type_arr[1], $output); // save picture
 	unset($output);
 	}
      //file_put_contents("wei_post.txt",  $post_data, FILE_APPEND);
