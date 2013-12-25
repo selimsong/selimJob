@@ -11,20 +11,15 @@ $msgId        = $xml->MsgId;
 //subscribe event
 if ($msgType == 'event') {
 	if ($xml->Event == 'subscribe') {
-		replyText($sendUserId, $developerId, '制作你的#2014,心愿潮动#贺卡   参加活动
-     2.上传照片
-     3.发送祝福语
-     4.收到祝福语言
-');
-		file_put_contents("wei_subscribe.txt",  $post_data, FILE_APPEND);
+			$description = "制作你的#2014,心愿潮动#贺卡    仅需三步，轻松制作: 1.即刻在冰红茶对话框中上传一张你想发送的朋友的照片。 2.输入你对朋友在新的一年的祝愿。 3.获取专属于你的#新年新潮#贺卡。";
+	        replyTextAndImg($sendUserId, $developerId, '制作你的#2014,心愿潮动#贺卡', $description, 'http://115.29.49.54/intro.jpg', '');
 	}
 	exit();
 }
 
 if ($msgType == 'text') {
-	$description = "制作你的#2014,心愿潮动#贺卡    仅需三步，轻松制作: 1.即刻在冰红茶对话框中上传一张你想发送的朋友的照片。 2.输入你对朋友在新的一年的祝愿。 3.获取专属于你的#新年新潮#贺卡。";
-	replyTextAndImg($sendUserId, $developerId, '制作你的#2014,心愿潮动#贺卡', $description, 'http://115.29.49.54/intro.jpg', '');
-	// replyText($sendUserId, $developerId, '发送“贺卡”，参加#2014，心愿潮动#贺卡，活动。');
+
+	 replyText($sendUserId, $developerId, '发送“贺卡”，参加#2014，心愿潮动#贺卡，活动。');
 	 exit();
 }
 
