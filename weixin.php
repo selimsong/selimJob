@@ -25,30 +25,29 @@ $_count  = $collection->count(array('sendUserId'=> "$sendUserId", 'updateData' =
 }
 
 if ($msgType == 'image') {
-	 $picUrl = $xml->PicUrl;
-	 $mediaId = $xml->MediaId;
-	 
-		if($_count<1){
-			$time = time();
-			$doc = array('developerId' => "$developerId", 'sendUserId' => "$sendUserId", 'picUrl'=> "$picUrl", 'mediaId'=> "$mediaId",'flg'=>'1' , 'content'=> "", 'updateData' => date('d'), 'updatetime' => "$time");
-			$collection->insert($doc); 
-		}else{
-		  $newContent  = array('$set' => array('picUrl' => "$picUrl", 'mediaId' => "$mediaId"));
-          $collection->update(array('sendUserId' => "$sendUserId", 'updateData' => date('d')),  $newContent);
-		}
-		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_URL, $picUrl);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		$output = curl_exec($ch);
-		$content_type = curl_getinfo($ch, CURLINFO_CONTENT_TYPE);
-		curl_close($ch);
-		$content_type_arr = explode('/', $content_type);
-		$ret = file_put_contents('./img/'.$sendUserId.'_$time'.'.'.$content_type_arr[1], $output); // save picture
-		unset($output);
-		
-		replyText($sendUserId, $developerId, ' Hey you！您的酷照已收到！请输入您对朋友的祝福吧');
-	
-	 exit();
+	$picUrl = $xml->PicUrl;
+	$mediaId = $xml->MediaId;
+	$time = time();
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, $picUrl);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	$output = curl_exec($ch);
+	$content_type = curl_getinfo($ch, CURLINFO_CONTENT_TYPE);
+	curl_close($ch);
+	$content_type_arr = explode('/', $content_type);
+	$picName = $sendUserId.'_'.$time.'.'.'.$content_type_arr[1];
+	$ret = file_put_contents('./img/'.$pictureName, $output); // save picture
+	unset($output);
+	if($_count<1){
+		$doc = array('developerId' => "$developerId", 'sendUserId' => "$sendUserId", 'picUrl'=> "$picUrl", 'picName' => "$picName", 'mediaId'=> "$mediaId",'flg'=>'1' , 'content'=> "", 'updateData' => date('d'), 'updatetime' => "$time");
+		$collection->insert($doc); 
+	}else{
+	  $newContent  = array('$set' => array('picUrl' => "$picUrl", 'mediaId' => "$mediaId", 'picName' => "$picName"));
+	  $collection->update(array('sendUserId' => "$sendUserId", 'updateData' => date('d')),  $newContent);
+	}
+
+    replyText($sendUserId, $developerId, ' Hey you！您的酷照已收到！请输入您对朋友的祝福吧');
+    exit();
 }
 
 
@@ -60,11 +59,24 @@ if ($msgType == 'text') {
 		 if("Y" == $content  || 'y' == $content){
 		    //$flgCheck  = $collection->count(array('sendUserId'=> "$sendUserId", 'updateData' => date('d'), 'flg'=>'2'));
             
-            $user = $collection->findOne(array('sendUserId'=> "$sendUserId", 'updateData' => date('d')));
-            file_put_contents('2.txt', $user);
+            $userInfo = $collection->findOne(array('sendUserId'=> "$sendUserId", 'updateData' => date('d')));
+            $UserPicture = './img/'.$userInfo['picName'];
+
+			$userImg = new Imagick('e-card.jpg');
+			$image = new Imagick('inset.png');
+			$draw = new ImagickDraw();
+			$draw->setFillColor('black');
+			$draw->setFont('Bookman-DemiItalic');
+			$draw->setFontSize( 30 );
+			$draw->setGravity(1);
+			$image->annotateImage($draw, 100, 200, -10, $userInfo['content']);
+			$userImg->compositeImage($image, Imagick::COMPOSITE_DEFAULT, 0, 0);
+			header('Content-type: image/jpg');
+            $userImg->writeImage('./image/$UserPicture');
+
 
             $description = "心愿潮动#贺卡   ";
-	        replyTextAndImg($sendUserId, $developerId, '心愿潮动#贺卡', $description, 'http://115.29.49.54/inset.png', '');
+	        replyTextAndImg($sendUserId, $developerId, '心愿潮动#贺卡', $description, 'http://115.29.49.54/image/'.$UserPicture, '');
 
 
 		 }else{
