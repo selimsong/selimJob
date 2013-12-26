@@ -25,43 +25,48 @@ $_count  = $collection->count(array('sendUserId'=> "$sendUserId", 'updateData' =
 }
 
 
-if ($msgType == 'text') {
-     $content      = $xml->Content;
-	 if($_count<1){
-		 $doc = array('developerId' => "$developerId", 'sendUserId' => "$sendUserId", 'content'=> "$content", 'updateData' => date('d'), 'updatetime' => time());
-		 $collection->insert($doc);
-	 }else{
-	     $newContent  = array('$set' => array('content' => "$content"));
-         $collection->update(array('sendUserId' => "$sendUserId", 'updateData' => date('d')),  $newContent);
-	 }
-	 replyText($sendUserId, $developerId, '发送“贺卡”，参加#2014，心愿潮动#贺卡，活动。');
-	 exit();
-
-}
-
 
 if ($msgType == 'image') {
 	 $picUrl = $xml->PicUrl;
 	 $mediaId = $xml->mediaId;
-	 
-	if($_count>0){
-	   replyText($sendUserId, $developerId, ' 我们将恢复您的贺卡，活动。');
-	 
-	$ch = curl_init();
-	curl_setopt($ch, CURLOPT_URL, $picUrl);
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	$output = curl_exec($ch);
-	$content_type = curl_getinfo($ch, CURLINFO_CONTENT_TYPE);
-	curl_close($ch);
-	$content_type_arr = explode('/', $content_type);
-	$ret = file_put_contents('./img/'.$sendUserId.'.'.$content_type_arr[1], $output); // save picture
-	unset($output);
-
-	file_put_contents("wei_post.txt",  $content_type_arr, FILE_APPEND);
-	}
-     
+		if($_count<1){
+			$time = time();
+			$doc = array('developerId' => "$developerId", 'sendUserId' => "$sendUserId", 'picUrl'=> "$picUrl", 'mediaId'=> "$mediaId", 'content'=> "", , 'updateData' => date('d'), 'updatetime' => "$time");
+			$collection->insert($doc); 
+		}else{
+		  $newContent  = array('$set' => array('picUrl' => "$picUrl", 'mediaId' => "$mediaId"));
+          $collection->update(array('sendUserId' => "$sendUserId", 'updateData' => date('d')),  $newContent);
+		}
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $picUrl);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		$output = curl_exec($ch);
+		$content_type = curl_getinfo($ch, CURLINFO_CONTENT_TYPE);
+		curl_close($ch);
+		$content_type_arr = explode('/', $content_type);
+		$ret = file_put_contents('./img/'.$sendUserId.'_$time'.'.'.$content_type_arr[1], $output); // save picture
+		unset($output);
+		
+		replyText($sendUserId, $developerId, ' Hey you！您的酷照已收到！请输入您对朋友的祝福吧');
+	
 	 exit();
 }
+
+
+
+if ($msgType == 'text') {
+     $content      = $xml->Content;
+	 if($_count>0){
+	     $newContent  = array('$set' => array('content' => "$content"));
+         $collection->update(array('sendUserId' => "$sendUserId", 'updateData' => date('d')),  $newContent);
+		 replyText($sendUserId, $developerId, '你的照片和文字已上传成功！请确认你已经认真阅读过我们的<a href="#">用户条款和隐私政策</a>，回复“Y”表示同意并继续。'); 
+	 }
+
+  exit();
+}
+
+
+
 
 
 
