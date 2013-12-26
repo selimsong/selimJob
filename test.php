@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 $userImg = new Imagick('e-card.jpg');
 
@@ -17,7 +17,7 @@ $draw->setFontSize( 30 );
 $draw->setGravity(1);
 
 /* Create text */
-$image->annotateImage($draw, 100, 200, -10, '我们 the lazy dog2');
+$image->annotateImage($draw, 100, 200, -10, '我们 the lazy dog3');
 
 $userImg->compositeImage($image, Imagick::COMPOSITE_DEFAULT, 0, 0);
 /* Give image a format */
