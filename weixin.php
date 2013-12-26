@@ -1,5 +1,6 @@
 <?php
 //include_once("validate.php");
+header("Content-Type:text/html;charset=utf-8");
 $post_data = $GLOBALS["HTTP_RAW_POST_DATA"];
 $xml       = simplexml_load_string($post_data);
 
