@@ -76,7 +76,7 @@ if ($msgType == 'text') {
 
 
             $description = "心愿潮动#贺卡   ";
-	        replyTextAndImg($sendUserId, $developerId, '心愿潮动#贺卡', $description, 'http://115.29.49.54/image/'.$UserPicture, '');
+	        replyTextAndImg($sendUserId, $developerId, '心愿潮动#贺卡', $description, 'http://115.29.49.54/image/'.$userInfo['picName'], '');
 
 
 		 }else{
