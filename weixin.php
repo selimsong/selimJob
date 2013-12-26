@@ -24,14 +24,13 @@ $collection = $db->users;
 $_count  = $collection->count(array('sendUserId'=> "$sendUserId", 'updateData' => date('d')));
 }
 
-
-
 if ($msgType == 'image') {
 	 $picUrl = $xml->PicUrl;
 	 $mediaId = $xml->MediaId;
+	 
 		if($_count<1){
 			$time = time();
-			$doc = array('developerId' => "$developerId", 'sendUserId' => "$sendUserId", 'picUrl'=> "$picUrl", 'mediaId'=> "$mediaId", 'content'=> "", 'updateData' => date('d'), 'updatetime' => "$time");
+			$doc = array('developerId' => "$developerId", 'sendUserId' => "$sendUserId", 'picUrl'=> "$picUrl", 'mediaId'=> "$mediaId",'flg'=>'1' , 'content'=> "", 'updateData' => date('d'), 'updatetime' => "$time");
 			$collection->insert($doc); 
 		}else{
 		  $newContent  = array('$set' => array('picUrl' => "$picUrl", 'mediaId' => "$mediaId"));
@@ -56,14 +55,30 @@ if ($msgType == 'image') {
 
 if ($msgType == 'text') {
      $content      = $xml->Content;
+	 
 	 if($_count>0){
-	     $newContent  = array('$set' => array('content' => "$content"));
-         $collection->update(array('sendUserId' => "$sendUserId", 'updateData' => date('d')),  $newContent);
-		 replyText($sendUserId, $developerId, '你的照片和文字已上传成功！请确认你已经认真阅读过我们的<a href="#">用户条款和隐私政策</a>，回复“Y”表示同意并继续。'); 
+		 if("Y" == $content  || 'y' == $content){
+		    //$flgCheck  = $collection->count(array('sendUserId'=> "$sendUserId", 'updateData' => date('d'), 'flg'=>'2'));
+            
+            $description = "心愿潮动#贺卡   ";
+	        replyTextAndImg($sendUserId, $developerId, '心愿潮动#贺卡', $description, 'http://115.29.49.54/intro.jpg', '');
+
+
+		 }else{
+		    $newContent  = array('$set' => array('content' => "$content", 'flg'=>'2'));
+            $collection->update(array('sendUserId' => "$sendUserId", 'updateData' => date('d')),  $newContent);
+		    replyText($sendUserId, $developerId, '你的照片和文字已上传成功！请确认你已经认真阅读过我们的<a href="#">用户条款和隐私政策</a>，回复“Y”表示同意并继续。'); 
+		 }
+		 
+
+	    
 	 }
 
   exit();
 }
+
+
+
 
 
 
