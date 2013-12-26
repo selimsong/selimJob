@@ -72,7 +72,7 @@ if ($msgType == 'text') {
 			$draw->setFontSize( 30 );
 			$draw->setGravity(1);
 			//$image->annotateImage($draw, 100, 200, -10, $userInfo['content']);
-			$image->annotateImage($draw, 100, 200, -10, '测试字体');
+			$image->annotateImage($draw, 100, 200, -10, mb_convert_encoding('test 测试字体', 'utf-8', 'gbk'));
 			$userImg->compositeImage($image, Imagick::COMPOSITE_DEFAULT, 0, 0);
 			header('Content-type: image/jpg');
             $userImg->writeImage('./image/'.$userInfo['picName']);
