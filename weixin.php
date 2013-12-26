@@ -72,7 +72,7 @@ if ($msgType == 'text') {
 			$image->annotateImage($draw, 100, 200, -10, $userInfo['content']);
 			$userImg->compositeImage($image, Imagick::COMPOSITE_DEFAULT, 0, 0);
 			header('Content-type: image/jpg');
-            $userImg->writeImage('./image/$UserPicture');
+            $userImg->writeImage('./image/'.$UserPicture);
 
 
             $description = "心愿潮动#贺卡   ";
