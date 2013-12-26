@@ -68,7 +68,7 @@ if ($msgType == 'text') {
 			$draw = new ImagickDraw();
 			$draw->setFillColor('black');
 			$draw->setFont('Bookman-DemiItalic');
-			$draw->setTextEncoding('utf-8');
+			//$draw->setTextEncoding('utf-8');
 			$draw->setFontSize( 30 );
 			$draw->setGravity(1);
 			//$image->annotateImage($draw, 100, 200, -10, $userInfo['content']);
