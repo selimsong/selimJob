@@ -31,7 +31,7 @@ if ($msgType == 'image') {
 	 $mediaId = $xml->mediaId;
 		if($_count<1){
 			$time = time();
-			$doc = array('developerId' => "$developerId", 'sendUserId' => "$sendUserId", 'picUrl'=> "$picUrl", 'mediaId'=> "$mediaId", 'content'=> "", , 'updateData' => date('d'), 'updatetime' => "$time");
+			$doc = array('developerId' => "$developerId", 'sendUserId' => "$sendUserId", 'picUrl'=> "$picUrl", 'mediaId'=> "$mediaId", 'content'=> "", 'updateData' => date('d'), 'updatetime' => "$time");
 			$collection->insert($doc); 
 		}else{
 		  $newContent  = array('$set' => array('picUrl' => "$picUrl", 'mediaId' => "$mediaId"));
