@@ -5,7 +5,7 @@ $userImg = new Imagick('e-card.jpg');
 /* Create some objects */
 $image = new Imagick('inset.png');
 $draw = new ImagickDraw();
-
+$draw->setTextEncoding('utf-8');
 
 /* Black text */
 $draw->setFillColor('black');
@@ -17,7 +17,7 @@ $draw->setFontSize( 30 );
 $draw->setGravity(1);
 
 /* Create text */
-$image->annotateImage($draw, 100, 200, -10, '我们 the lazy dog');
+$image->annotateImage($draw, 100, 200, -10, utf8_decode('我们 the lazy dog'));
 
 $userImg->compositeImage($image, Imagick::COMPOSITE_DEFAULT, 0, 0);
 /* Give image a format */
