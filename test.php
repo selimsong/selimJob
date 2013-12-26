@@ -11,13 +11,13 @@ $draw->setTextEncoding('utf-8');
 $draw->setFillColor('black');
 
 /* Font properties */
-$draw->setFont('Bookman-DemiItalic');
+//$draw->setFont('Bookman-DemiItalic');
 $draw->setFontSize( 30 );
 
 $draw->setGravity(1);
 
 /* Create text */
-$image->annotateImage($draw, 100, 200, -10, utf8_decode('我们 the lazy dog'));
+$image->annotateImage($draw, 100, 200, -10, utf8_decode('我们 the lazy dog1'));
 
 $userImg->compositeImage($image, Imagick::COMPOSITE_DEFAULT, 0, 0);
 /* Give image a format */
