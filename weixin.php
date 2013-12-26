@@ -62,7 +62,7 @@ if ($msgType == 'text') {
             $userInfo = $collection->findOne(array('sendUserId'=> "$sendUserId", 'updateData' => date('d')));
             $UserPicture = './img/'.$userInfo['picName'];
 
-			$userImg = new Imagick('e-card.jpg');
+			$userImg = new Imagick($UserPicture);
 			$image = new Imagick('inset.png');
 			$draw = new ImagickDraw();
 			$draw->setFillColor('black');
@@ -72,7 +72,7 @@ if ($msgType == 'text') {
 			$image->annotateImage($draw, 100, 200, -10, $userInfo['content']);
 			$userImg->compositeImage($image, Imagick::COMPOSITE_DEFAULT, 0, 0);
 			header('Content-type: image/jpg');
-            $userImg->writeImage('./image/'.$UserPicture);
+            $userImg->writeImage('./image/'.$userInfo['picName']);
 
 
             $description = "心愿潮动#贺卡   ";
