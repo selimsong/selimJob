@@ -28,7 +28,7 @@ $_count  = $collection->count(array('sendUserId'=> "$sendUserId", 'updateData' =
 
 if ($msgType == 'image') {
 	 $picUrl = $xml->PicUrl;
-	 $mediaId = $xml->mediaId;
+	 $mediaId = $xml->MediaId;
 		if($_count<1){
 			$time = time();
 			$doc = array('developerId' => "$developerId", 'sendUserId' => "$sendUserId", 'picUrl'=> "$picUrl", 'mediaId'=> "$mediaId", 'content'=> "", 'updateData' => date('d'), 'updatetime' => "$time");
