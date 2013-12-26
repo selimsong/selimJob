@@ -1,6 +1,5 @@
 <?php
 //include_once("validate.php");
-header("Content-Type:text/html;charset=utf-8");
 $post_data = $GLOBALS["HTTP_RAW_POST_DATA"];
 $xml       = simplexml_load_string($post_data);
 
@@ -67,12 +66,12 @@ if ($msgType == 'text') {
 			$image = new Imagick('inset.png');
 			$draw = new ImagickDraw();
 			$draw->setFillColor('black');
-			//$draw->setFont('Bookman-DemiItalic');
+			$draw->setFont('/var/www/hanyi.ttf');
 			$draw->setTextEncoding('utf-8');
 			$draw->setFontSize( 30 );
 			$draw->setGravity(1);
 			//$image->annotateImage($draw, 100, 200, -10, $userInfo['content']);
-			$image->annotateImage($draw, 100, 200, -10, mb_convert_encoding('test3测试字体','utf-8', 'gbk'));
+			$image->annotateImage($draw, 100, 200, -10,'test4测试字体');
 			$userImg->compositeImage($image, Imagick::COMPOSITE_DEFAULT, 0, 0);
 			header('Content-type: image/jpg');
             $userImg->writeImage('./image/'.$userInfo['picName']);
