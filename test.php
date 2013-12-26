@@ -11,7 +11,7 @@ $draw->setTextEncoding('utf-8');
 $draw->setFillColor('black');
 
 /* Font properties */
-//$draw->setFont('Bookman-DemiItalic');
+$draw->setFont('/var/www/hanyi.ttf');
 $draw->setFontSize( 30 );
 
 $draw->setGravity(1);
