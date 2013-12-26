@@ -60,8 +60,11 @@ if ($msgType == 'text') {
 		 if("Y" == $content  || 'y' == $content){
 		    //$flgCheck  = $collection->count(array('sendUserId'=> "$sendUserId", 'updateData' => date('d'), 'flg'=>'2'));
             
+            $user = $collection->findOne(array('sendUserId'=> "$sendUserId", 'updateData' => date('d'));
+            file_put_contents('2.txt', $user);
+
             $description = "心愿潮动#贺卡   ";
-	        replyTextAndImg($sendUserId, $developerId, '心愿潮动#贺卡', $description, 'http://115.29.49.54/intro.jpg', '');
+	        replyTextAndImg($sendUserId, $developerId, '心愿潮动#贺卡', $description, 'http://115.29.49.54/inset.png', '');
 
 
 		 }else{
