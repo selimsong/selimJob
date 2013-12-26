@@ -35,8 +35,8 @@ if ($msgType == 'image') {
 	$content_type = curl_getinfo($ch, CURLINFO_CONTENT_TYPE);
 	curl_close($ch);
 	$content_type_arr = explode('/', $content_type);
-	$picName = $sendUserId.'_'.$time.'.'.'.$content_type_arr[1];
-	$ret = file_put_contents('./img/'.$pictureName, $output); // save picture
+	$picName = $sendUserId.'_'.$time.'.'.$content_type_arr[1];
+	$ret = file_put_contents('./img/'.$picName, $output);  
 	unset($output);
 	if($_count<1){
 		$doc = array('developerId' => "$developerId", 'sendUserId' => "$sendUserId", 'picUrl'=> "$picUrl", 'picName' => "$picName", 'mediaId'=> "$mediaId",'flg'=>'1' , 'content'=> "", 'updateData' => date('d'), 'updatetime' => "$time");
