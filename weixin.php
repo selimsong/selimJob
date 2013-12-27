@@ -106,7 +106,7 @@ if ($msgType == 'text') {
 			$image_top = new Imagick('365top.png');
 			$draw = new ImagickDraw();
 			$draw->setFillColor('black');
-			$draw->setFont('/var/www/hanyi.ttf');
+			$draw->setFont('/var/www/han.TTF');
 			$draw->setTextEncoding('utf-8');
 			$draw->setFontSize( 30 );
 			$draw->setGravity(1);
