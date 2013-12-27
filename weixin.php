@@ -110,10 +110,10 @@ if ($msgType == 'text') {
 			$draw->setTextEncoding('utf-8');
 			$draw->setFontSize( 30 );
 			$draw->setGravity(1);
-			$image->annotateImage($draw, 400, 200, -10, $userInfo['content']);
+			$image->annotateImage($draw, 200, 200, -10, $userInfo['content']);
 			//$image->annotateImage($draw, 100, 200, -10,'test4测试字体');
 			//$userImg->compositeImage($image, Imagick::COMPOSITE_DEFAULT, 0, 0);
-			$image->compositeImage($userImg, Imagick::COMPOSITE_DEFAULT, 0, 0);
+			$image->compositeImage($userImg, Imagick::COMPOSITE_DEFAULT, 10, 0);
 			$image->compositeImage($image_top, Imagick::COMPOSITE_DEFAULT, 0, 0);
 			header('Content-type: image/jpg');
             //$userImg->writeImage('./image/'.$userInfo['picName']);
