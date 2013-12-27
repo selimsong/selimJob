@@ -102,8 +102,8 @@ if ($msgType == 'text') {
             $UserPicture = './img/'.$userInfo['picName'];
 
 			$userImg = new Imagick($UserPicture);
-			$image = new Imagick('365buttom.png');
-			$image_top = new Imagick('365top.png');
+			$image = new Imagick('test365buttom.png');
+			$image_top = new Imagick('test365top.png');
 			$draw = new ImagickDraw();
 			$draw->setFillColor('#f8ec00');
 			$draw->setFont('/var/www/han.TTF');
