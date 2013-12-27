@@ -1,7 +1,7 @@
 <?php
 
 //define your token
-define("TOKEN", "nikerunning");
+define("TOKEN", "tongyigo");
 $wechatObj = new wechatCallbackapiTest();
 $wechatObj->valid();
 
