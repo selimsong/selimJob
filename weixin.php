@@ -81,7 +81,7 @@ if ($msgType == 'text') {
             $UserPicture = './img/'.$userInfo['picName'];
 
 			$userImg = new Imagick($UserPicture);
-			$image = new Imagick('inset.png');
+			$image = new Imagick('298-492.png');
 			$draw = new ImagickDraw();
 			$draw->setFillColor('black');
 			$draw->setFont('/var/www/hanyi.ttf');
