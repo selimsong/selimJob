@@ -90,10 +90,11 @@ if ($msgType == 'text') {
 			$draw->setGravity(1);
 			$image->annotateImage($draw, 100, 200, -10, $userInfo['content']);
 			//$image->annotateImage($draw, 100, 200, -10,'test4测试字体');
-			$userImg->compositeImage($image, Imagick::COMPOSITE_DEFAULT, 0, 0);
+			//$userImg->compositeImage($image, Imagick::COMPOSITE_DEFAULT, 0, 0);
+			$image->compositeImage($userImg, Imagick::COMPOSITE_DEFAULT, 0, 0);
 			header('Content-type: image/jpg');
-            $userImg->writeImage('./image/'.$userInfo['picName']);
-
+            //$userImg->writeImage('./image/'.$userInfo['picName']);
+            $image->writeImage('./image/'.$userInfo['picName']);
 
             $description = "心愿潮动#贺卡   ";
 	        replyTextAndImg($sendUserId, $developerId, '心愿潮动#贺卡', $description, 'http://115.29.49.54/image/'.$userInfo['picName'], '');
