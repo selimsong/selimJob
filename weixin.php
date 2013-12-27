@@ -81,7 +81,8 @@ if ($msgType == 'text') {
             $UserPicture = './img/'.$userInfo['picName'];
 
 			$userImg = new Imagick($UserPicture);
-			$image = new Imagick('298-492.png');
+			$image = new Imagick('365buttom.png');
+			$image_top = new Imagick('365top.png');
 			$draw = new ImagickDraw();
 			$draw->setFillColor('black');
 			$draw->setFont('/var/www/hanyi.ttf');
@@ -92,6 +93,7 @@ if ($msgType == 'text') {
 			//$image->annotateImage($draw, 100, 200, -10,'test4测试字体');
 			//$userImg->compositeImage($image, Imagick::COMPOSITE_DEFAULT, 0, 0);
 			$image->compositeImage($userImg, Imagick::COMPOSITE_DEFAULT, 0, 0);
+			$image->compositeImage($image_top, Imagick::COMPOSITE_DEFAULT, 0, 0);
 			header('Content-type: image/jpg');
             //$userImg->writeImage('./image/'.$userInfo['picName']);
             $image->writeImage('./image/'.$userInfo['picName']);
