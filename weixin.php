@@ -44,6 +44,11 @@ if ($msgType == 'image') {
 		$h = $height*(730/$width);
 		$im->scaleImage(730, $h, false);
 	}
+	if ($height > 492) {
+		$w = $width*(492/$height);
+		$im->scaleImage($w, 492, false);
+	}
+
 	$imGray = new Imagick();
 	$imGray->newImage($width, $height, new ImagickPixel('#33333333'));
 	$im->compositeImage($imGray, Imagick::COMPOSITE_DEFAULT, 0, 0);
