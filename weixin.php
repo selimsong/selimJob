@@ -40,15 +40,36 @@ if ($msgType == 'image') {
 	unset($output);
     list($width, $height) = getimagesize('./img/'.$picName);
 	$im = new Imagick('./img/'.$picName);
+    
+	$h = NULL;
+	if ($width > 200) {
+		$h = $height*(200/$width);
+		$im->scaleImage(200, $h, false);
+		$width = 200;
+	}
+	if(!empty($h)){
+	   $height = $h;
+	}
+	if ($height > 300) {
+		$w = $width*(300/$height);
+		$im->scaleImage($w, 300, false);
+	}
+ 
+	/**
+	$h = NULL;
 	if ($width > 730) {
 		$h = $height*(730/$width);
 		$im->scaleImage(730, $h, false);
+		$width = 730;
+	}
+	if(!empty($h)){
+	   $height = $h;
 	}
 	if ($height > 492) {
 		$w = $width*(492/$height);
 		$im->scaleImage($w, 492, false);
 	}
-
+    */
 	$imGray = new Imagick();
 	$imGray->newImage($width, $height, new ImagickPixel('#33333333'));
 	$im->compositeImage($imGray, Imagick::COMPOSITE_DEFAULT, 0, 0);
