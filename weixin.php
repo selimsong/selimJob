@@ -113,7 +113,7 @@ if ($msgType == 'text') {
 			$image->annotateImage($draw, 150, 100, -10, $userInfo['content']);
 			//$image->annotateImage($draw, 100, 200, -10,'test4测试字体');
 			//$userImg->compositeImage($image, Imagick::COMPOSITE_DEFAULT, 0, 0);
-			$image->compositeImage($userImg, Imagick::COMPOSITE_DEFAULT, 100, 60);
+			$image->compositeImage($userImg, Imagick::COMPOSITE_DEFAULT, 150, 70);
 			$image->compositeImage($image_top, Imagick::COMPOSITE_DEFAULT, 0, 0);
 			header('Content-type: image/jpg');
             //$userImg->writeImage('./image/'.$userInfo['picName']);
