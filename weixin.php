@@ -38,6 +38,19 @@ if ($msgType == 'image') {
 	$picName = $sendUserId.'_'.$time.'.'.$content_type_arr[1];
 	$ret = file_put_contents('./img/'.$picName, $output);  
 	unset($output);
+    list($width, $height) = getimagesize('./img/'.$picName);
+	$im = new Imagick('./img/'.$picName);
+	if ($width > 730) {
+		$h = $height*(730/$width);
+		$im->scaleImage(730, $h, false);
+	}
+	$imGray = new Imagick();
+	$imGray->newImage($width, $height, new ImagickPixel('#33333333'));
+	$im->compositeImage($imGray, Imagick::COMPOSITE_DEFAULT, 0, 0);
+	$imGray->clear();
+	$im->writeImage('./img/'.$picName);
+	$im->clear();
+
 	if($_count<1){
 		$doc = array('developerId' => "$developerId", 'sendUserId' => "$sendUserId", 'picUrl'=> "$picUrl", 'picName' => "$picName", 'mediaId'=> "$mediaId",'flg'=>'1' , 'content'=> "", 'updateData' => date('d'), 'updatetime' => "$time");
 		$collection->insert($doc); 
