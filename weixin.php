@@ -42,17 +42,17 @@ if ($msgType == 'image') {
 	$im = new Imagick('./img/'.$picName);
     
 	$h = NULL;
-	if ($width > 200) {
-		$h = $height*(200/$width);
-		$im->scaleImage(200, $h, false);
-		$width = 200;
+	if ($width > 100) {
+		$h = $height*(100/$width);
+		$im->scaleImage(100, $h, false);
+		$width = 100;
 	}
 	if(!empty($h)){
 	   $height = $h;
 	}
-	if ($height > 300) {
-		$w = $width*(300/$height);
-		$im->scaleImage($w, 300, false);
+	if ($height > 200) {
+		$w = $width*(200/$height);
+		$im->scaleImage($w, 200, false);
 	}
  
 	/**
@@ -108,12 +108,12 @@ if ($msgType == 'text') {
 			$draw->setFillColor('#f8ec00');
 			$draw->setFont('/var/www/han.TTF');
 			$draw->setTextEncoding('utf-8');
-			$draw->setFontSize(28);
+			$draw->setFontSize(16);
 			$draw->setGravity(1);
-			$image->annotateImage($draw, 200, 100, -10, $userInfo['content']);
+			$image->annotateImage($draw, 100, 100, -10, $userInfo['content']);
 			//$image->annotateImage($draw, 100, 200, -10,'test4测试字体');
 			//$userImg->compositeImage($image, Imagick::COMPOSITE_DEFAULT, 0, 0);
-			$image->compositeImage($userImg, Imagick::COMPOSITE_DEFAULT, 100, 200);
+			$image->compositeImage($userImg, Imagick::COMPOSITE_DEFAULT, 0, 100);
 			$image->compositeImage($image_top, Imagick::COMPOSITE_DEFAULT, 0, 0);
 			header('Content-type: image/jpg');
             //$userImg->writeImage('./image/'.$userInfo['picName']);
