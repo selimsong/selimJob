@@ -70,10 +70,10 @@ if ($msgType == 'image') {
 		$im->scaleImage($w, 492, false);
 	}
     */
-	$imGray = new Imagick();
-	$imGray->newImage($width, $height, new ImagickPixel('#33333333'));
-	$im->compositeImage($imGray, Imagick::COMPOSITE_DEFAULT, 0, 0);
-	$imGray->clear();
+	//$imGray = new Imagick();
+	//$imGray->newImage($width, $height, new ImagickPixel('#33333333'));
+	//$im->compositeImage($imGray, Imagick::COMPOSITE_DEFAULT, 0, 0);
+	//$imGray->clear();
 	$im->writeImage('./img/'.$picName);
 	$im->clear();
 
