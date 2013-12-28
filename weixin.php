@@ -150,8 +150,8 @@ if ($msgType == 'text') {
 			$userImgBig = new Imagick($UserBigPicture);
 			$imageBig = new Imagick('bigbuttom.png');
 			$image_topBig = new Imagick('fbigtop.png');
-			$userImgBig->rotateImage(new ImagickPixel('transparent'), -13.00); 
-			$imageBig->compositeImage($userImgBig, Imagick::COMPOSITE_DEFAULT, 210, 175);
+			$userImgBig->rotateImage(new ImagickPixel('transparent'), -12.00); 
+			$imageBig->compositeImage($userImgBig, Imagick::COMPOSITE_DEFAULT, 190, 180);
 			$imageBig->compositeImage($image_topBig, Imagick::COMPOSITE_DEFAULT, 0, 0);
 			$draw = new ImagickDraw();
 			$draw->setFillColor('#f8ec00');
