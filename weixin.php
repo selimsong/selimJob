@@ -124,8 +124,8 @@ if ($msgType == 'text') {
             $UserPicture = './img/small'.$userInfo['picName'];
 
 			$userImg = new Imagick($UserPicture);
-			$image = new Imagick('test365buttom.png');
-			$image_top = new Imagick('test365top.png');
+			$image = new Imagick('buttom.png');
+			$image_top = new Imagick('top.png');
 			//$image->annotateImage($draw, 100, 200, -10,'test4测试字体');
 			//$userImg->compositeImage($image, Imagick::COMPOSITE_DEFAULT, 0, 0);
 			$userImg->rotateImage(new ImagickPixel('transparent'), -13.55); 
