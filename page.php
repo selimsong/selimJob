@@ -31,7 +31,7 @@
 	
             <div style="text-align:center; margin:0 auto;">
 			<?php 
-            $path = 'http://115.29.49.54/image/heka.jpg';
+            $path = 'http://115.29.49.54/heka.jpg';
 			if(!empty($_GET['id'])){
 			  $path = 'http://115.29.49.54/image/big'.base64_decode($_GET['id']);
 			} 
