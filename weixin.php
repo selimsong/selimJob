@@ -108,9 +108,9 @@ if ($msgType == 'text') {
 			$draw->setFillColor('#f8ec00');
 			$draw->setFont('/var/www/han.TTF');
 			$draw->setTextEncoding('utf-8');
-			$draw->setFontSize(16);
+			$draw->setFontSize(24);
 			$draw->setGravity(1);
-			$image->annotateImage($draw, 50, 50, -10, $userInfo['content']);
+			$image->annotateImage($draw, 10, 60, -10, $userInfo['content']);
 			//$image->annotateImage($draw, 100, 200, -10,'test4测试字体');
 			//$userImg->compositeImage($image, Imagick::COMPOSITE_DEFAULT, 0, 0);
 			$userImg->rotateImage(new ImagickPixel('transparent'), -13.55); 
