@@ -40,7 +40,7 @@ if ($msgType == 'image') {
 	unset($output);
     list($width, $height) = getimagesize('./img/'.$picName);
 	$im = new Imagick('./img/'.$picName);
-    
+
 	$h = NULL;
 	if ($width > 140) {
 		$h = $height*(140/$width);
@@ -74,7 +74,7 @@ if ($msgType == 'image') {
 	//$imGray->newImage($width, $height, new ImagickPixel('#33333333'));
 	//$im->compositeImage($imGray, Imagick::COMPOSITE_DEFAULT, 0, 0);
 	//$imGray->clear();
-	$im->writeImage('./img/'.$picName);
+	$im->writeImage('./img/'.'small'.$picName);
 	$im->clear();
 
 	if($_count<1){
@@ -100,7 +100,7 @@ if ($msgType == 'text') {
 		    //$flgCheck  = $collection->count(array('sendUserId'=> "$sendUserId", 'updateData' => date('d'), 'flg'=>'2'));
             
             $userInfo = $collection->findOne(array('sendUserId'=> "$sendUserId", 'updateData' => date('d')));
-            $UserPicture = './img/'.$userInfo['picName'];
+            $UserPicture = './img/small'.$userInfo['picName'];
 
 			$userImg = new Imagick($UserPicture);
 			$image = new Imagick('test365buttom.png');
