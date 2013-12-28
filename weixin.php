@@ -42,10 +42,10 @@ if ($msgType == 'image') {
 	$im = new Imagick('./img/'.$picName);
     
 	$h = NULL;
-	if ($width > 150) {
-		$h = $height*(150/$width);
-		$im->scaleImage(150, $h, false);
-		$width = 150;
+	if ($width > 140) {
+		$h = $height*(140/$width);
+		$im->scaleImage(140, $h, false);
+		$width = 140;
 	}
 	if(!empty($h)){
 	   $height = $h;
