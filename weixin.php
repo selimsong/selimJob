@@ -144,7 +144,7 @@ if ($msgType == 'text') {
 
 
             $description = "＃马上你就红＃三招炮制祝福海报。即刻上传你的照片，写下你对TA的祝福语，就可获取专属于你对TA的祝福海报";
-	        replyTextAndImg($sendUserId, $developerId, '炮制＃马上你就红＃祝福海报', $description, 'http://115.29.49.54/image/'.$userInfo['picName'], 'http://tongyi.mei94.com/page.html');
+	        replyTextAndImg($sendUserId, $developerId, '炮制＃马上你就红＃祝福海报', $description, 'http://115.29.49.54/image/'.$userInfo['picName'], 'http://tongyi.mei94.com/page?id='.$userInfo['picName']);
 
             $UserBigPicture = './img/big'.$userInfo['picName'];
 			$userImgBig = new Imagick($UserBigPicture);
