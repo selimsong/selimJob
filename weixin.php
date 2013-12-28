@@ -85,7 +85,8 @@ if ($msgType == 'image') {
 	  $collection->update(array('sendUserId' => "$sendUserId", 'updateData' => date('d')),  $newContent);
 	}
 
-    replyText($sendUserId, $developerId, ' Hey you！您的酷照已收到！请输入您对朋友的祝福吧');
+    replyText($sendUserId, $developerId, '新年快乐！欢迎参加＃马上你就红＃祝福海报制作活动，你的照片已收到！现在，请用一段文字写下你的对TA的祝福（请将文字限制在10个英文字符内，请勿夹杂符号表情或敏感文字），活动时间（2013/12/31—2014/2/6）
+');
     exit();
 }
 
@@ -128,7 +129,8 @@ if ($msgType == 'text') {
 		 }else{
 		    $newContent  = array('$set' => array('content' => "$content", 'flg'=>'2'));
             $collection->update(array('sendUserId' => "$sendUserId", 'updateData' => date('d')),  $newContent);
-		    replyText($sendUserId, $developerId, '你的照片和文字已上传成功！请确认你已经认真阅读过我们的<a href="#">用户条款和隐私政策</a>，回复“Y”表示同意并继续。'); 
+		    replyText($sendUserId, $developerId, '你的照片和文字已上传成功，红运马上送到TA！请确认你已经认真阅读过我们的用户条款和隐私政策，回复”Y”表示同意并继续。
+'); 
 		 }
 		 
 
