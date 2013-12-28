@@ -121,7 +121,7 @@ if ($msgType == 'text') {
             $image->writeImage('./image/'.$userInfo['picName']);
 
             $description = "心愿潮动#贺卡   ";
-	        replyTextAndImg($sendUserId, $developerId, '心愿潮动#贺卡', $description, 'http://115.29.49.54/image/'.$userInfo['picName'], '');
+	        replyTextAndImg($sendUserId, $developerId, '心愿潮动#贺卡', $description, 'http://115.29.49.54/image/'.$userInfo['picName'], 'http://tongyi.mei94.com/page.html');
 
 
 		 }else{
