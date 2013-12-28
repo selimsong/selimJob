@@ -39,8 +39,29 @@ if ($msgType == 'image') {
 	$ret = file_put_contents('./img/'.$picName, $output);  
 	unset($output);
     list($width, $height) = getimagesize('./img/'.$picName);
-	$im = new Imagick('./img/'.$picName);
 
+
+	$im_big = new Imagick('./img/'.$picName);
+	$h = NULL;
+	$_width = $width;
+    $_height = $height;
+	if ($_width > 140) {
+		$h = $_height*(140/$_width);
+		$im_big->scaleImage(140, $h, false);
+		$_width = 140;
+	}
+	if(!empty($h)){
+	   $_height = $h;
+	}
+	if ($_height > 150) {
+		$w = $_width*(150/$_height);
+		$im_big->scaleImage($w, 150, false);
+	}
+    $im_big->writeImage('./img/'.'big'.$picName);
+	$im_big->clear();
+
+
+	$im = new Imagick('./img/'.$picName);
 	$h = NULL;
 	if ($width > 140) {
 		$h = $height*(140/$width);
