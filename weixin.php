@@ -45,17 +45,17 @@ if ($msgType == 'image') {
 	$h = NULL;
 	$_width = $width;
     $_height = $height;
-	if ($_width > 400) {
-		$h = $_height*(400/$_width);
-		$im_big->scaleImage(400, $h, false);
-		$_width = 400;
+	if ($_width > 600) {
+		$h = $_height*(600/$_width);
+		$im_big->scaleImage(600, $h, false);
+		$_width = 600;
 	}
 	if(!empty($h)){
 	   $_height = $h;
 	}
-	if ($_height > 400) {
-		$w = $_width*(400/$_height);
-		$im_big->scaleImage($w, 400, false);
+	if ($_height > 600) {
+		$w = $_width*(600/$_height);
+		$im_big->scaleImage($w, 600, false);
 	}
     $im_big->writeImage('./img/'.'big'.$picName);
 	$im_big->clear();
