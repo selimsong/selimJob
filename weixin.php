@@ -148,8 +148,8 @@ if ($msgType == 'text') {
 
             $UserBigPicture = './img/big'.$userInfo['picName'];
 			$userImg = new Imagick($UserBigPicture);
-			$image = new Imagick('test365buttom.png');
-			$image_top = new Imagick('test365top.png');
+			$image = new Imagick('bigbuttom.png');
+			$image_top = new Imagick('bigtop.png');
 			$draw = new ImagickDraw();
 			$draw->setFillColor('#f8ec00');
 			$draw->setFont('/var/www/han.TTF');
