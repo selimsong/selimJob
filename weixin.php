@@ -159,7 +159,7 @@ if ($msgType == 'text') {
 			$draw->setFillColor('#f8ec00');
 			$draw->setFont('/var/www/han.TTF');
 			$draw->setTextEncoding('utf-8');
-			$draw->setFontSize(60);
+			$draw->setFontSize(48);
 			$draw->setGravity(1);
 			$imageBig->annotateImage($draw, 255, 770, -10, $userInfo['content']);
 			header('Content-type: image/jpg');
