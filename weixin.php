@@ -150,6 +150,9 @@ if ($msgType == 'text') {
 			$userImgBig = new Imagick($UserBigPicture);
 			$imageBig = new Imagick('bigbuttom.png');
 			$image_topBig = new Imagick('bigtop.png');
+			$userImgBig->rotateImage(new ImagickPixel('transparent'), -13.55); 
+			$imageBig->compositeImage($userImgBig, Imagick::COMPOSITE_DEFAULT, 215, 210);
+			$imageBig->compositeImage($image_topBig, Imagick::COMPOSITE_DEFAULT, 0, 0);
 			$draw = new ImagickDraw();
 			$draw->setFillColor('#f8ec00');
 			$draw->setFont('/var/www/han.TTF');
@@ -157,9 +160,6 @@ if ($msgType == 'text') {
 			$draw->setFontSize(60);
 			$draw->setGravity(1);
 			$imageBig->annotateImage($draw, 215, 600, -10, $userInfo['content']);
-			$userImgBig->rotateImage(new ImagickPixel('transparent'), -13.55); 
-			$imageBig->compositeImage($userImgBig, Imagick::COMPOSITE_DEFAULT, 215, 210);
-			$imageBig->compositeImage($image_topBig, Imagick::COMPOSITE_DEFAULT, 0, 0);
 			header('Content-type: image/jpg');
             $imageBig->writeImage('./image/big'.$userInfo['picName']);
 
