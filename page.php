@@ -28,7 +28,7 @@
     <body>
         <div id="container">
             <img style="width:100%;" src="header2.png" />
-            <div style="text-align:center; margin:0 auto;"><img style="width:92%;" alt="" src="http://115.29.49.54/image/big<?php echo $id; ?>" /></div>
+            <div style="text-align:center; margin:0 auto;"><img style="width:92%;" alt="" src="http://115.29.49.54/image/big<?php echo urldecode($_GET['id']); ?>" /></div>
                         
           
         </div>
