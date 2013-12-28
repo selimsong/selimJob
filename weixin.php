@@ -156,9 +156,9 @@ if ($msgType == 'text') {
 			$draw->setTextEncoding('utf-8');
 			$draw->setFontSize(60);
 			$draw->setGravity(1);
-			$imageBig->annotateImage($draw, 150, 490, -10, $userInfo['content']);
+			$imageBig->annotateImage($draw, 190, 700, -10, $userInfo['content']);
 			$userImgBig->rotateImage(new ImagickPixel('transparent'), -13.55); 
-			$imageBig->compositeImage($userImgBig, Imagick::COMPOSITE_DEFAULT, 130, 220);
+			$imageBig->compositeImage($userImgBig, Imagick::COMPOSITE_DEFAULT, 230, 420);
 			$imageBig->compositeImage($image_topBig, Imagick::COMPOSITE_DEFAULT, 0, 0);
 			header('Content-type: image/jpg');
             $imageBig->writeImage('./image/big'.$userInfo['picName']);
