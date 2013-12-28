@@ -45,10 +45,10 @@ if ($msgType == 'image') {
 	$h = NULL;
 	$_width = $width;
     $_height = $height;
-	if ($_width > 400) {
-		$h = $_height*(400/$_width);
-		$im_big->scaleImage(400, $h, false);
-		$_width = 400;
+	if ($_width > 450) {
+		$h = $_height*(450/$_width);
+		$im_big->scaleImage(450, $h, false);
+		$_width = 450;
 	}
 	if(!empty($h)){
 	   $_height = $h;
