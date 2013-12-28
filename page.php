@@ -28,7 +28,16 @@
     <body>
         <div id="container">
             <img style="width:100%;" src="header2.png" />
-            <div style="text-align:center; margin:0 auto;"><img style="width:92%;" alt="" src="http://115.29.49.54/image/big<?php echo base64_decode($_GET['id']); ?>" /></div>
+	
+            <div style="text-align:center; margin:0 auto;">
+			<?php 
+            $path = 'http://115.29.49.54/image/heka.jpg';
+			if(!empty($_GET['id'])){
+			  $path = 'http://115.29.49.54/image/big'.base64_decode($_GET['id']);
+			} 
+			?>
+			<img style="width:92%;" alt="" src="<?php echo $path; ?>" />
+			</div>
                         
           
         </div>
