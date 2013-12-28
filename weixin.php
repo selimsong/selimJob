@@ -161,7 +161,7 @@ if ($msgType == 'text') {
 			$draw->setTextEncoding('utf-8');
 			$draw->setFontSize(36);
 			$draw->setGravity(1);
-			$imageBig->annotateImage($draw, 420, 750, -10, $userInfo['content']);
+			$imageBig->annotateImage($draw, 410, 754, -10, $userInfo['content']);
 			header('Content-type: image/jpg');
             $imageBig->writeImage('./image/big'.$userInfo['picName']);
 
