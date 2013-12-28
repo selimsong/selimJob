@@ -147,21 +147,21 @@ if ($msgType == 'text') {
 	        replyTextAndImg($sendUserId, $developerId, '炮制＃马上你就红＃祝福海报', $description, 'http://115.29.49.54/image/'.$userInfo['picName'], 'http://tongyi.mei94.com/page.html');
 
             $UserBigPicture = './img/big'.$userInfo['picName'];
-			$userImg = new Imagick($UserBigPicture);
-			$image = new Imagick('bigbuttom.png');
-			$image_top = new Imagick('bigtop.png');
+			$userImgBig = new Imagick($UserBigPicture);
+			$imageBig = new Imagick('bigbuttom.png');
+			$image_topBig = new Imagick('bigtop.png');
 			$draw = new ImagickDraw();
 			$draw->setFillColor('#f8ec00');
 			$draw->setFont('/var/www/han.TTF');
 			$draw->setTextEncoding('utf-8');
-			$draw->setFontSize(24);
+			$draw->setFontSize(60);
 			$draw->setGravity(1);
-			$image->annotateImage($draw, 10, 60, -10, $userInfo['content']);
-			$userImg->rotateImage(new ImagickPixel('transparent'), -13.55); 
-			$image->compositeImage($userImg, Imagick::COMPOSITE_DEFAULT, 120, 20);
-			$image->compositeImage($image_top, Imagick::COMPOSITE_DEFAULT, 0, 0);
+			$imageBig->annotateImage($draw, 100, 400, -10, $userInfo['content']);
+			$userImgBig->rotateImage(new ImagickPixel('transparent'), -13.55); 
+			$imageBig->compositeImage($userImgBig, Imagick::COMPOSITE_DEFAULT, 120, 20);
+			$imageBig->compositeImage($image_topBig, Imagick::COMPOSITE_DEFAULT, 0, 0);
 			header('Content-type: image/jpg');
-            $image->writeImage('./image/big'.$userInfo['picName']);
+            $imageBig->writeImage('./image/big'.$userInfo['picName']);
 
 		 }else{
 		    $newContent  = array('$set' => array('content' => "$content", 'flg'=>'2'));
