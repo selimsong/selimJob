@@ -142,10 +142,26 @@ if ($msgType == 'text') {
             //$userImg->writeImage('./image/'.$userInfo['picName']);
             $image->writeImage('./image/'.$userInfo['picName']);
 
-            $description = "＃马上你就红＃三招炮制祝福海报。即刻上传你的照片，写下你对TA的祝福语，就可获取专属于你对TA的祝福海报
-";
+
+            $description = "＃马上你就红＃三招炮制祝福海报。即刻上传你的照片，写下你对TA的祝福语，就可获取专属于你对TA的祝福海报";
 	        replyTextAndImg($sendUserId, $developerId, '炮制＃马上你就红＃祝福海报', $description, 'http://115.29.49.54/image/'.$userInfo['picName'], 'http://tongyi.mei94.com/page.html');
 
+            $UserBigPicture = './img/big'.$userInfo['picName'];
+			$userImg = new Imagick($UserBigPicture);
+			$image = new Imagick('test365buttom.png');
+			$image_top = new Imagick('test365top.png');
+			$draw = new ImagickDraw();
+			$draw->setFillColor('#f8ec00');
+			$draw->setFont('/var/www/han.TTF');
+			$draw->setTextEncoding('utf-8');
+			$draw->setFontSize(24);
+			$draw->setGravity(1);
+			$image->annotateImage($draw, 10, 60, -10, $userInfo['content']);
+			$userImg->rotateImage(new ImagickPixel('transparent'), -13.55); 
+			$image->compositeImage($userImg, Imagick::COMPOSITE_DEFAULT, 120, 20);
+			$image->compositeImage($image_top, Imagick::COMPOSITE_DEFAULT, 0, 0);
+			header('Content-type: image/jpg');
+            $image->writeImage('./image/big'.$userInfo['picName']);
 
 		 }else{
 		    $newContent  = array('$set' => array('content' => "$content", 'flg'=>'2'));
@@ -160,14 +176,6 @@ if ($msgType == 'text') {
 
   exit();
 }
-
-
-
-
-
-
-
-
 
 
 function replyText($toUserName, $fromUserName, $text)
@@ -225,14 +233,6 @@ function replyTextAndImg($toUserName, $fromUserName, $title, $description, $picU
 					</Articles>
                </xml>";			
 	$resultStr = sprintf($textTpl, $toUserName, $fromUserName, time(),  $title, $description, $picUrl, $url,$title, '我们飞啦', '', '');
-  
-  
-  
-  
   }
 	echo $resultStr;
 }
-
-
-// $description = "制作你的#2014,心愿潮动#贺卡    仅需三步，轻松制作: 1.即刻在冰红茶对话框中上传一张你想发送的朋友的照片。 2.输入你对朋友在新的一年的祝愿。 3.获取专属于你的#新年新潮#贺卡。";
-//replyTextAndImg($sendUserId, $developerId, '制作你的#2014,心愿潮动#贺卡', $description, 'http://115.29.49.54/intro.jpg', '',2);
