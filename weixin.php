@@ -150,8 +150,8 @@ if ($msgType == 'text') {
 
             $UserBigPicture = './img/big'.$userInfo['picName'];
 			$userImgBig = new Imagick($UserBigPicture);
-			$imageBig = new Imagick('bigbuttom.png');
-			$image_topBig = new Imagick('fbigtop.png');
+			$imageBig = new Imagick('newbigbuttom.png');
+			$image_topBig = new Imagick('newbigtop.png');
 			$userImgBig->rotateImage(new ImagickPixel('transparent'), -12.00); 
 			$imageBig->compositeImage($userImgBig, Imagick::COMPOSITE_DEFAULT, 180, 190);
 			$imageBig->compositeImage($image_topBig, Imagick::COMPOSITE_DEFAULT, 0, 0);
