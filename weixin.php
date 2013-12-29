@@ -142,8 +142,8 @@ if ($msgType == 'text') {
             $image->writeImage('./image/'.$userInfo['picName']);
 
 
-            $description = "新年到了，小伙伴们是不是抑制不住要给大伙儿发个祝福呢？最酷的莫过于自己炮制一张贺卡，为TA送去2014最潮酷的祝福！祝TA们马上走红运！";
-	        replyTextAndImg($sendUserId, $developerId, '炮制＃马上你就红＃新年贺卡', $description, 'http://115.29.49.54/image/'.$userInfo['picName'], 'http://tongyi.mei94.com/page?id='.base64_encode($userInfo['picName']));
+            $description = "Ding——新年贺卡已新鲜出炉！快进来看看，即刻发送给你要祝福的TA，或再次上传照片，即可重新炮制再为其他小伙伴送去祝福吧！";
+	        replyTextAndImg($sendUserId, $developerId, '#马上你就红# 新年贺卡，即刻给你好看', $description, 'http://115.29.49.54/image/'.$userInfo['picName'], 'http://tongyi.mei94.com/page?id='.base64_encode($userInfo['picName']));
 			 
 	        //replyTextAndImg($sendUserId, $developerId, '炮制＃马上你就红＃祝福海报', $description, 'http://115.29.49.54/activity.jpg', 'http://tongyi.mei94.com/page');
 
