@@ -10,8 +10,8 @@ $msgId        = $xml->MsgId;
 //subscribe event
 if ($msgType == 'event') {
 	if ($xml->Event == 'subscribe') {
-			 $description = "＃马上你就红＃三招炮制祝福海报。即刻上传你的照片，写下你对TA的祝福语，就可获取专属于你对TA的祝福海报";
-	        replyTextAndImg($sendUserId, $developerId, '炮制＃马上你就红＃祝福海报', $description, 'http://115.29.49.54/activity.jpg', 'http://tongyi.mei94.com/page');
+			 $description = "新年到了，小伙伴们是不是抑制不住要给大伙儿发个祝福呢？最酷的莫过于自己炮制一张贺卡，为TA送去2014最潮酷的祝福！祝TA们马上走红运！";
+	        replyTextAndImg($sendUserId, $developerId, '炮制＃马上你就红＃新年贺卡', $description, 'http://115.29.49.54/activity.jpg', 'http://tongyi.mei94.com/page');
 	}
 	exit();
 }
@@ -106,8 +106,7 @@ if ($msgType == 'image') {
 	  $collection->update(array('sendUserId' => "$sendUserId", 'updateData' => date('d')),  $newContent);
 	}
 
-    replyText($sendUserId, $developerId, '新年快乐！欢迎参加＃马上你就红＃祝福海报制作活动，你的照片已收到！现在，请用一段文字写下你的对TA的祝福（请将文字限制在10个英文字符内，请勿夹杂符号表情或敏感文字），活动时间（2013/12/31—2014/2/6）
-');
+    replyText($sendUserId, $developerId, '新年快乐！欢迎参加＃马上你就红＃新年贺卡制作活动，你的照片已收到！现在，请在“祝你2014马上______”的空格处写下一段祝福语（请将文字限制在10个英文字符内，请勿夹杂符号表情或敏感文字），活动时间（2013/12/31—2014/2/6）');
     exit();
 }
 
@@ -143,8 +142,8 @@ if ($msgType == 'text') {
             $image->writeImage('./image/'.$userInfo['picName']);
 
 
-            $description = "＃马上你就红＃三招炮制祝福海报。即刻上传你的照片，写下你对TA的祝福语，就可获取专属于你对TA的祝福海报";
-	        replyTextAndImg($sendUserId, $developerId, '炮制＃马上你就红＃祝福海报', $description, 'http://115.29.49.54/image/'.$userInfo['picName'], 'http://tongyi.mei94.com/page?id='.base64_encode($userInfo['picName']));
+            $description = "新年到了，小伙伴们是不是抑制不住要给大伙儿发个祝福呢？最酷的莫过于自己炮制一张贺卡，为TA送去2014最潮酷的祝福！祝TA们马上走红运！";
+	        replyTextAndImg($sendUserId, $developerId, '炮制＃马上你就红＃新年贺卡', $description, 'http://115.29.49.54/image/'.$userInfo['picName'], 'http://tongyi.mei94.com/page?id='.base64_encode($userInfo['picName']));
 			 
 	        //replyTextAndImg($sendUserId, $developerId, '炮制＃马上你就红＃祝福海报', $description, 'http://115.29.49.54/activity.jpg', 'http://tongyi.mei94.com/page');
 
