@@ -129,7 +129,7 @@ if ($msgType == 'text') {
 			//$image->annotateImage($draw, 100, 200, -10,'test4测试字体');
 			//$userImg->compositeImage($image, Imagick::COMPOSITE_DEFAULT, 0, 0);
 			$userImg->rotateImage(new ImagickPixel('transparent'), -13.55); 
-			$image->compositeImage($userImg, Imagick::COMPOSITE_DEFAULT, 120, 20);
+			$image->compositeImage($userImg, Imagick::COMPOSITE_DEFAULT, 150, 10);
 			$image->compositeImage($image_top, Imagick::COMPOSITE_DEFAULT, 0, 0);
 			$draw = new ImagickDraw();
 			$draw->setFillColor('#f8ec00');
