@@ -54,12 +54,12 @@ $path = 'http://115.29.49.54/image/big'.base64_decode($_GET['id']);
 <p>赶紧定制一张新年贺卡吧！</p> <br /><br />
 <?php }else{ ?>
 
-<p><img style="width:92%;" alt=""  src="http://115.29.49.54/1.png" /></p>
-<p class="pLine">收到小伙伴们为你私人定制的贺卡是不是激动万分？赶紧<strong>长按图片</strong>，存到手机相册，留存这份难得的情谊。或分享至<strong>微信朋友圈、新浪微博<a id="btn_sina" href="#"><img style="vertical-align:middle;"  src="http://dove.u.qiniudn.com/images/btnweibo.png"></a></strong>和<strong> 腾讯微博<a id="btn_tencent" href="#"><img style="vertical-align:middle;" src="http://dove.u.qiniudn.com/images/btntencent.png"></a></strong>，秀出你的惊喜！</p>
+<p><img style="width:60%;" alt=""  src="http://115.29.49.54/1.png" /></p>
+<p class="pLine">收到小伙伴们为你私人定制的贺卡是不是激动万分？赶紧<strong>长按图片</strong>，存到手机相册，留存这份难得的情谊。或分享至<strong>微信朋友圈、新浪微博<a id="btn_sina" href="#"><img style="vertical-align:middle;width: 10%;"  src="http://dove.u.qiniudn.com/images/btnweibo.png"></a></strong>和<strong> 腾讯微博<a id="btn_tencent" href="#"><img style="vertical-align:middle;width: 10%;" src="http://dove.u.qiniudn.com/images/btntencent.png"></a></strong>，秀出你的惊喜！</p>
 
 
-<p><img style="width:92%;" alt="" src="http://115.29.49.54/2.png" /></p>
-<p class="pLine">快关注统一冰红茶官方微信号：tongyiicetea，在对话框中上传一张祝福对象的照片（竖版或正方形），即刻为你的小伙伴们<span class="chu">私人定制新年贺卡</span>。</p> <br /><br />
+<p><img style="width:60%;" alt="" src="http://115.29.49.54/2.png" /></p>
+<p class="pLine">快关注统一冰红茶官方微信号：<span style="color:#F00;">tongyiicetea</span>，在对话框中上传一张祝福对象的照片（竖版或正方形），即刻为你的小伙伴们<span class="chu">私人定制新年贺卡</span>。</p> <br /><br />
 
 <?php  }  ?>
 </div>
