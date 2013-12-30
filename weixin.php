@@ -129,7 +129,7 @@ if ($msgType == 'text') {
 			}else{
 			   $image_topBig = new Imagick('zhen-top.png');
 			   $text_x = 110;
-			   $text_y = 740;
+			   $text_y = 700;
 			}
 			$userImgBig->rotateImage(new ImagickPixel('transparent'), -11.00); 
 			$imageBig->compositeImage($userImgBig, Imagick::COMPOSITE_DEFAULT, 180, 190);
@@ -138,7 +138,7 @@ if ($msgType == 'text') {
 			$draw->setFillColor('#f8ec00');
 			$draw->setFont('/var/www/han.TTF');
 			$draw->setTextEncoding('utf-8');
-			$draw->setFontSize(48);
+			$draw->setFontSize(52);
 			$draw->setGravity(1);
 			$imageBig->annotateImage($draw, $text_x, $text_y, -11, $userInfo['content']);
 			header('Content-type: image/jpg');
