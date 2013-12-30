@@ -124,8 +124,8 @@ if ($msgType == 'text') {
 			$imageBig = new Imagick('newbigbuttom.png');
             if(($geo['height'] - $geo['width']) > 10){
 			   $image_topBig = new Imagick('chang-top.png');
-			   $text_x = 122;
-			   $text_y = 750;
+			   $text_x = 120;
+			   $text_y = 790;
 			}else{
 			   $image_topBig = new Imagick('zhen-top.png');
 			   $text_x = 110;
