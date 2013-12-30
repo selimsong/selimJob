@@ -130,7 +130,7 @@ if ($msgType == 'text') {
 			$imageBig->annotateImage($draw, 400, 761, -9, $userInfo['content']);
 			header('Content-type: image/jpg');
             $imageBig->writeImage('./image/big'.$userInfo['picName']);
-			$doc = array('developerId' => "$developerId", 'sendUserId' => "$sendUserId",  'status'=> '3', 'updateData' => date('d'), 'updatetime' => "$time");
+			$doc = array('developerId' => "$developerId", 'sendUserId' => "$sendUserId", 'status'=> '3', 'updateData' => date('d'), 'updatetime' => "$time");
 	        $collection_log->insert($doc); 
 		 }else{
             $badkey = '妈逼|操|狗屎|阴|垃圾';
@@ -145,7 +145,7 @@ if ($msgType == 'text') {
 		    $newContent  = array('$set' => array('content' => "$content", 'flg'=>'2'));
             $collection->update(array('sendUserId' => "$sendUserId", 'updateData' => date('d')),  $newContent);
 
-			$doc = array('developerId' => "$developerId", 'sendUserId' => "$sendUserId",,  'status'=> '2', 'content'=> "$content", 'updateData' => date('d'), 'updatetime' => "$time");
+			$doc = array('developerId' => "$developerId", 'sendUserId' => "$sendUserId", 'status'=> '2', 'content'=> "$content", 'updateData' => date('d'), 'updatetime' => "$time");
 	        $collection_log->insert($doc); 
 		    replyText($sendUserId, $developerId, '你的照片和文字已上传成功，红运马上送到TA！请确认你已经认真阅读过我们的<a href="http://tongyi.mei94.com/rule.html">用户条款和隐私政策</a>，回复”Y”表示同意并继续。
 '); 
