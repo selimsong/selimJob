@@ -65,6 +65,49 @@ $path = 'http://115.29.49.54/image/big'.base64_decode($_GET['id']);
 
 
 </div>
-
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+        <script type="text/javascript">
+        
+        var shareTxt = '千言万语不够，一个理由去跑就好。@nikerunning #跑了就懂#';
+        var sharePic = '<?php echo $path; ?>';
+        
+        function sina() {
+            var url = '';
+            var appkey = '';
+            var title = shareTxt;
+            var pic = sharePic;
+            var ralateUid = '';
+            var language = 'zh_cn';
+        
+            url = encodeURIComponent( url || '' );
+            appkey = encodeURIComponent( appkey || '' );
+            title = encodeURIComponent( title || '' );
+            pic = encodeURIComponent( pic || '' );
+            ralateUid = encodeURIComponent( ralateUid || '' );
+            language = encodeURIComponent( language || '' );
+        
+            window.open("http://service.weibo.com/share/share.php?url="+url+"&appkey="+appkey+"&title="+title+"&pic="+pic+"&ralateUid="+ralateUid+"&language="+language,"_blank","width=615,height=505, toolbar=no, menubar=no, scrollbars=no, location=yes, resizable=no, status=no");
+        }
+        function tencent() {
+            var _t = encodeURIComponent(shareTxt);
+            var _url = '';
+            var _appkey = encodeURIComponent('');
+            var _pic = encodeURIComponent(sharePic);
+            var _site = '';
+            var _u = 'http://v.t.qq.com/share/share.php?url='+_url+'&appkey='+_appkey+'&site='+_site+'&pic='+_pic+'&title='+_t;
+            window.open( _u,'', 'width=700, height=680, top=0, left=0, toolbar=no, menubar=no, scrollbars=no, location=yes, resizable=no, status=no' );
+        }
+        
+        $(function(){
+            $('#btn_sina').click(function(e){
+                sina();
+                return false;
+            });
+            $('#btn_tencent').click(function(e){
+                tencent();
+                return false;
+            });
+        });
+        </script>
 </body>
 </html>
