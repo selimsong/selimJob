@@ -15,7 +15,7 @@
                 background-size: cover;
             }
             #container { margin:0px auto; }
-            body { color: #FFEA00; font-size:16px; }
+            body { color: #541e14; font-size:14px; }
             h1 { text-align:center; }
             div.c { text-align:center; }
             #btnswrap { width:100%; position:relative; }
@@ -27,19 +27,26 @@
     </head>
     <body>
         <div id="container">
-            <img style="width:100%;" src="header2.png" />
-	
+            <img style="width:100%;" src="http://115.29.49.54/header2.png" />
             <div style="text-align:center; margin:0 auto;">
 			<?php 
             $path = 'http://115.29.49.54/heka.jpg';
+			$path = 'heka.jpg';
 			if(!empty($_GET['id'])){
 			  $path = 'http://115.29.49.54/image/big'.base64_decode($_GET['id']);
 			} 
 			?>
 			<img style="width:92%;" alt="" src="<?php echo $path; ?>" />
 			</div>
-                        
-          
+            <div style="width:92%;text-align:left; margin:0 auto;
+            height:163px; ">
+            <p>收到小伙伴们为你亲手炮制的贺卡是不是激动万分？</p>
+            <p>赶紧长按图片，存到手机相册，留存这份难得的情谊。或分享到微信朋友圈，秀出你的惊喜！</p>
+<p>快关注统一冰红茶官方微信，你也可以亲手炮制新年贺卡。</p>
+         
+            </div>
+        
+     
         </div>
        
     </body>
