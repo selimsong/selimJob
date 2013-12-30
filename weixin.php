@@ -115,8 +115,8 @@ if ($msgType == 'text') {
 			header('Content-type: image/jpg');
             $image->writeImage('./image/'.$userInfo['picName']);
 
-            $description = "Ding——新年贺卡已新鲜出炉！快进来看看，即刻发送给你要祝福的TA，或再次上传照片，即可重新炮制再为其他小伙伴送去祝福吧！";
-	        replyTextAndImg($sendUserId, $developerId, '#马上你就红# 新年贺卡，即刻给你好看', $description, 'http://115.29.49.54/image/'.$userInfo['picName'], 'http://tongyi.mei94.com/page?id='.base64_encode($userInfo['picName']));
+            $description = "Ding——新年贺卡新鲜出炉！快进来看看！即刻发送给你要祝福的TA，或再次上传照片，即可重新定制，再为其他小伙伴送去祝福！";
+	        replyTextAndImg($sendUserId, $developerId, '#马上你就红# ，即刻给你好看', $description, 'http://115.29.49.54/image/'.$userInfo['picName'], 'http://tongyi.mei94.com/page?id='.base64_encode($userInfo['picName']));
 
             $UserBigPicture = './img/big'.$userInfo['picName'];
 			$userImgBig = new Imagick($UserBigPicture);
