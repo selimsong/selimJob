@@ -18,6 +18,7 @@ if(!empty($msgType)){  //create the connection
 $m = new mongoClient('mongodb://127.0.0.1', array());
 $db = $m->wxin;
 $collection = $db->users;
+$collection_log = $db->logs;
 $_count  = $collection->count(array('sendUserId'=> "$sendUserId", 'updateData' => date('d')));
 }
 if ($msgType == 'image') {
@@ -81,7 +82,9 @@ if ($msgType == 'image') {
 	}
 
     replyText($sendUserId, $developerId, '新年快乐！欢迎参加＃马上你就红＃新年贺卡制作活动，你的照片已收到！现在，请在“祝你2014马上______”的空格处写下一段祝福语（请将文字限制在10个英文字符内，请勿夹杂符号表情或敏感文字），活动时间（2013/12/31—2014/2/6）');
-    exit();
+    $doc = array('developerId' => "$developerId", 'sendUserId' => "$sendUserId", 'picUrl'=> "$picUrl", 'picName' => "$picName", 'mediaId'=> "$mediaId", 'updateData' => date('d'), 'updatetime' => "$time");
+	$collection_log->insert($doc); 
+	exit();
 }
 
 if ($msgType == 'text') {
@@ -139,6 +142,9 @@ if ($msgType == 'text') {
 			}
 		    $newContent  = array('$set' => array('content' => "$content", 'flg'=>'2'));
             $collection->update(array('sendUserId' => "$sendUserId", 'updateData' => date('d')),  $newContent);
+
+			$doc = array('developerId' => "$developerId", 'sendUserId' => "$sendUserId", 'picUrl'=> "$picUrl", 'picName' => "$picName", 'mediaId'=> "$mediaId",'flg'=>'1' , 'content'=> "", 'updateData' => date('d'), 'updatetime' => "$time");
+	        $collection_log->insert($doc); 
 		    replyText($sendUserId, $developerId, '你的照片和文字已上传成功，红运马上送到TA！请确认你已经认真阅读过我们的<a href="http://tongyi.mei94.com/rule.html">用户条款和隐私政策</a>，回复”Y”表示同意并继续。
 '); 
 		 }
