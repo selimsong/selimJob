@@ -38,7 +38,7 @@ if ($msgType == 'image') {
     list($width, $height) = getimagesize('./img/'.$picName);
 
 	$im_big = new Imagick('./img/'.$picName);
-	if(($width - $height) > 200){
+	if(($width - $height) > 10){
 		 replyText($sendUserId, $developerId, '不好意思，你的输入内容有误，如果想要参与统一冰红茶 #马上你就红#新年贺卡私人定制活动，请直接上传一张祝福对象的照片（要竖版或正方形的），就可以获取你为TA私人定制的新年贺卡，快来试试！');
 	     exit();
 	}
@@ -122,7 +122,7 @@ if ($msgType == 'text') {
 			$userImgBig = new Imagick($UserBigPicture);
 			$geo=$userImgBig->getImageGeometry();
 			$imageBig = new Imagick('newbigbuttom.png');
-            if(($geo['height'] - $geo['width']) > 40){
+            if(($geo['height'] - $geo['width']) > 10){
 			   $image_topBig = new Imagick('chang-top.png');
 			   $text_x = 122;
 			   $text_y = 840;
