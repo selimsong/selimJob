@@ -103,7 +103,7 @@ if ($msgType == 'text') {
 			$image = new Imagick('buttom.png');
 			$image_top = new Imagick('top.png');
 			$userImg->rotateImage(new ImagickPixel('transparent'), -7.00); 
-			$image->compositeImage($userImg, Imagick::COMPOSITE_DEFAULT, 154, 5);
+			$image->compositeImage($userImg, Imagick::COMPOSITE_DEFAULT, 160, 5);
 			$image->compositeImage($image_top, Imagick::COMPOSITE_DEFAULT, 0, 0);
 			$draw = new ImagickDraw();
 			$draw->setFillColor('#f8ec00');
