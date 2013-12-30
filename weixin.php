@@ -109,9 +109,9 @@ if ($msgType == 'text') {
 			$draw->setFillColor('#f8ec00');
 			$draw->setFont('/var/www/han.TTF');
 			$draw->setTextEncoding('utf-8');
-			$draw->setFontSize(32);
+			$draw->setFontSize(28);
 			$draw->setGravity(1);
-			$image->annotateImage($draw, 30, 140, -9, $userInfo['content']);
+			$image->annotateImage($draw, 30, 142, -9, $userInfo['content']);
 			header('Content-type: image/jpg');
             $image->writeImage('./image/'.$userInfo['picName']);
 
