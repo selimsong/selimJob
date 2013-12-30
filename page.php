@@ -32,7 +32,6 @@ img { border:none; }
 </head>
 <body>
 <div id="container">
-<img style="width:100%;" src="http://115.29.49.54/header2.png" />
 <div style="text-align:center; margin:0 auto;">
 <?php 
 $path = 'http://115.29.49.54/heka.jpg';
