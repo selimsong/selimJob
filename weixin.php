@@ -9,8 +9,8 @@ $msgId        = $xml->MsgId;
 //subscribe event
 if ($msgType == 'event') {
 	if ($xml->Event == 'subscribe') {
-			 $description = "新年到了，小伙伴们是不是抑制不住要给大伙儿发个祝福呢？最酷的莫过于自己炮制一张贺卡，为TA送去2014最潮酷的祝福！祝TA们马上走红运！";
-	        replyTextAndImg($sendUserId, $developerId, '炮制＃马上你就红＃新年贺卡', $description, 'http://115.29.49.54/activity.jpg', 'http://tongyi.mei94.com/page');
+			 $description = "新年到了，小伙伴们是不是按捺不住要给大伙儿发祝福呢？最酷莫过于亲手定制一张贺卡，即刻在对话框中上传一张祝福对象的竖版照片，获取你为TA私人定制的新年贺卡！";
+	        replyTextAndImg($sendUserId, $developerId, '私人定制＃马上你就红＃新年贺卡', $description, 'http://115.29.49.54/activity.jpg', 'http://tongyi.mei94.com/page');
 	}
 	exit();
 }
@@ -143,7 +143,7 @@ if ($msgType == 'text') {
 		    $newContent  = array('$set' => array('content' => "$content", 'flg'=>'2'));
             $collection->update(array('sendUserId' => "$sendUserId", 'updateData' => date('d')),  $newContent);
 
-			$doc = array('developerId' => "$developerId", 'sendUserId' => "$sendUserId", 'picUrl'=> "$picUrl", 'picName' => "$picName", 'mediaId'=> "$mediaId",'flg'=>'1' , 'content'=> "", 'updateData' => date('d'), 'updatetime' => "$time");
+			$doc = array('developerId' => "$developerId", 'sendUserId' => "$sendUserId",  'content'=> "", 'updateData' => date('d'), 'updatetime' => "$time");
 	        $collection_log->insert($doc); 
 		    replyText($sendUserId, $developerId, '你的照片和文字已上传成功，红运马上送到TA！请确认你已经认真阅读过我们的<a href="http://tongyi.mei94.com/rule.html">用户条款和隐私政策</a>，回复”Y”表示同意并继续。
 '); 
