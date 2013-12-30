@@ -138,9 +138,9 @@ if ($msgType == 'text') {
 			$draw->setFillColor('#f8ec00');
 			$draw->setFont('/var/www/han.TTF');
 			$draw->setTextEncoding('utf-8');
-			$draw->setFontSize(36);
+			$draw->setFontSize(48);
 			$draw->setGravity(1);
-			$imageBig->annotateImage($draw, $text_x, $text_y, -9, $userInfo['content']);
+			$imageBig->annotateImage($draw, $text_x, $text_y, -11, $userInfo['content']);
 			header('Content-type: image/jpg');
             $imageBig->writeImage('./image/big'.$userInfo['picName']);
 			$doc = array('sendUserId' => "$sendUserId", 'status'=> '3', 'updateData' => date('d'), 'updatetime' => "$time");
