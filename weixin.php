@@ -38,7 +38,7 @@ if ($msgType == 'image') {
     list($width, $height) = getimagesize('./img/'.$picName);
 
 	$im_big = new Imagick('./img/'.$picName);
-	if(($width - $height - 30) > 0){
+	if(($width - $height) > 200){
 		 replyText($sendUserId, $developerId, '不好意思，你的输入内容有误，如果想要参与统一冰红茶 #马上你就红#新年贺卡私人定制活动，请直接上传一张祝福对象的照片（要竖版或正方形的），就可以获取你为TA私人定制的新年贺卡，快来试试！');
 	     exit();
 	}
