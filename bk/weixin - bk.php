@@ -2,6 +2,7 @@
 //include_once("validate.php");
 $post_data = $GLOBALS["HTTP_RAW_POST_DATA"];
 $xml       = simplexml_load_string($post_data);
+
 $developerId  = $xml->ToUserName;
 $sendUserId   = $xml->FromUserName;
 $msgType      = $xml->MsgType;
@@ -14,12 +15,15 @@ if ($msgType == 'event') {
 	}
 	exit();
 }
+
+
 if(!empty($msgType)){  //create the connection
 $m = new mongoClient('mongodb://127.0.0.1', array());
 $db = $m->wxin;
 $collection = $db->users;
 $_count  = $collection->count(array('sendUserId'=> "$sendUserId", 'updateData' => date('d')));
 }
+
 if ($msgType == 'image') {
 	$picUrl = $xml->PicUrl;
 	$mediaId = $xml->MediaId;
@@ -35,6 +39,7 @@ if ($msgType == 'image') {
 	$ret = file_put_contents('./img/'.$picName, $output);  
 	unset($output);
     list($width, $height) = getimagesize('./img/'.$picName);
+
 
 	$im_big = new Imagick('./img/'.$picName);
 	$h = NULL;
@@ -55,6 +60,7 @@ if ($msgType == 'image') {
     $im_big->writeImage('./img/'.'big'.$picName);
 	$im_big->clear();
 
+
 	$im = new Imagick('./img/'.$picName);
 	$h = NULL;
 	if ($width > 160) {
@@ -69,6 +75,26 @@ if ($msgType == 'image') {
 		$w = $width*(150/$height);
 		$im->scaleImage($w, 150, false);
 	}
+ 
+	/**
+	$h = NULL;
+	if ($width > 730) {
+		$h = $height*(730/$width);
+		$im->scaleImage(730, $h, false);
+		$width = 730;
+	}
+	if(!empty($h)){
+	   $height = $h;
+	}
+	if ($height > 492) {
+		$w = $width*(492/$height);
+		$im->scaleImage($w, 492, false);
+	}
+    */
+	//$imGray = new Imagick();
+	//$imGray->newImage($width, $height, new ImagickPixel('#33333333'));
+	//$im->compositeImage($imGray, Imagick::COMPOSITE_DEFAULT, 0, 0);
+	//$imGray->clear();
 	$im->writeImage('./img/'.'small'.$picName);
 	$im->clear();
 
@@ -84,17 +110,23 @@ if ($msgType == 'image') {
     exit();
 }
 
+
+
 if ($msgType == 'text') {
      $content      = $xml->Content;
 	 
 	 if($_count>0){
 		 if("Y" == $content  || 'y' == $content){
+		    //$flgCheck  = $collection->count(array('sendUserId'=> "$sendUserId", 'updateData' => date('d'), 'flg'=>'2'));
             
             $userInfo = $collection->findOne(array('sendUserId'=> "$sendUserId", 'updateData' => date('d')));
             $UserPicture = './img/small'.$userInfo['picName'];
+
 			$userImg = new Imagick($UserPicture);
 			$image = new Imagick('buttom.png');
 			$image_top = new Imagick('top.png');
+			//$image->annotateImage($draw, 100, 200, -10,'test4测试字体');
+			//$userImg->compositeImage($image, Imagick::COMPOSITE_DEFAULT, 0, 0);
 			$userImg->rotateImage(new ImagickPixel('transparent'), -7.00); 
 			$image->compositeImage($userImg, Imagick::COMPOSITE_DEFAULT, 150, 5);
 			$image->compositeImage($image_top, Imagick::COMPOSITE_DEFAULT, 0, 0);
@@ -106,10 +138,14 @@ if ($msgType == 'text') {
 			$draw->setGravity(1);
 			$image->annotateImage($draw, 230, 154, -9, $userInfo['content']);
 			header('Content-type: image/jpg');
+            //$userImg->writeImage('./image/'.$userInfo['picName']);
             $image->writeImage('./image/'.$userInfo['picName']);
+
 
             $description = "Ding——新年贺卡已新鲜出炉！快进来看看，即刻发送给你要祝福的TA，或再次上传照片，即可重新炮制再为其他小伙伴送去祝福吧！";
 	        replyTextAndImg($sendUserId, $developerId, '#马上你就红# 新年贺卡，即刻给你好看', $description, 'http://115.29.49.54/image/'.$userInfo['picName'], 'http://tongyi.mei94.com/page?id='.base64_encode($userInfo['picName']));
+			 
+	        //replyTextAndImg($sendUserId, $developerId, '炮制＃马上你就红＃祝福海报', $description, 'http://115.29.49.54/activity.jpg', 'http://tongyi.mei94.com/page');
 
             $UserBigPicture = './img/big'.$userInfo['picName'];
 			$userImgBig = new Imagick($UserBigPicture);
@@ -127,6 +163,7 @@ if ($msgType == 'text') {
 			$imageBig->annotateImage($draw, 400, 761, -9, $userInfo['content']);
 			header('Content-type: image/jpg');
             $imageBig->writeImage('./image/big'.$userInfo['picName']);
+
 		 }else{
 			if (mb_strlen($content, 'UTF-8') > 10) {
 				replyText($sendUserId, $developerId, '对不起，您的输入有误，请重新输入，请将文字限制在10个英文字符内，请勿夹杂符号表情或敏感文字。');
@@ -137,11 +174,17 @@ if ($msgType == 'text') {
 		    replyText($sendUserId, $developerId, '你的照片和文字已上传成功，红运马上送到TA！请确认你已经认真阅读过我们的<a href="http://tongyi.mei94.com/rule.html">用户条款和隐私政策</a>，回复”Y”表示同意并继续。
 '); 
 		 }
+		 
+
+	    
 	 }
 
   exit();
 }
-function replyText($toUserName, $fromUserName, $text){
+
+
+function replyText($toUserName, $fromUserName, $text)
+{
     $textTpl = "<xml>
 	                <ToUserName><![CDATA[%s]]></ToUserName>
 	                <FromUserName><![CDATA[%s]]></FromUserName>
@@ -152,7 +195,9 @@ function replyText($toUserName, $fromUserName, $text){
 	$resultStr = sprintf($textTpl, $toUserName, $fromUserName, time(), $text);
 	echo $resultStr;
 }
-function replyTextAndImg($toUserName, $fromUserName, $title, $description, $picUrl='', $url='', $count=1){
+
+function replyTextAndImg($toUserName, $fromUserName, $title, $description, $picUrl='', $url='', $count=1)
+{
   if(1 == $count){
     $textTpl = "<xml>
 	                <ToUserName><![CDATA[%s]]></ToUserName>
