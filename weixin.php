@@ -126,10 +126,12 @@ if ($msgType == 'text') {
 			   $image_topBig = new Imagick('chang-top.png');
 			   $text_x = 120;
 			   $text_y = 820;
+			   $degree = -9;
 			}else{
 			   $image_topBig = new Imagick('zhen-top.png');
 			   $text_x = 110;
 			   $text_y = 724;
+			   $degree = -8;
 			}
 			$userImgBig->rotateImage(new ImagickPixel('transparent'), -11.00); 
 			$imageBig->compositeImage($userImgBig, Imagick::COMPOSITE_DEFAULT, 180, 190);
@@ -140,7 +142,7 @@ if ($msgType == 'text') {
 			$draw->setTextEncoding('utf-8');
 			$draw->setFontSize(52);
 			$draw->setGravity(1);
-			$imageBig->annotateImage($draw, $text_x, $text_y, -9, $userInfo['content']);
+			$imageBig->annotateImage($draw, $text_x, $text_y, $degree, $userInfo['content']);
 			header('Content-type: image/jpg');
             $imageBig->writeImage('./image/big'.$userInfo['picName']);
 			$doc = array('sendUserId' => "$sendUserId", 'status'=> '3', 'updateData' => date('d'), 'updatetime' => "$time");
