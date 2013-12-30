@@ -129,7 +129,7 @@ if ($msgType == 'text') {
 			}else{
 			   $image_topBig = new Imagick('zhen-top.png');
 			   $text_x = 110;
-			   $text_y = 720;
+			   $text_y = 721;
 			}
 			$userImgBig->rotateImage(new ImagickPixel('transparent'), -11.00); 
 			$imageBig->compositeImage($userImgBig, Imagick::COMPOSITE_DEFAULT, 180, 190);
