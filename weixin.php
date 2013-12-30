@@ -128,6 +128,11 @@ if ($msgType == 'text') {
 			header('Content-type: image/jpg');
             $imageBig->writeImage('./image/big'.$userInfo['picName']);
 		 }else{
+            $badkey = '妈逼|操|狗屎|阴';
+			if(preg_match("/$badkey/i", $content)){
+			   replyText($sendUserId, $developerId, '对不起，您的输入有误，请重新输入，请勿夹杂符号表情或敏感文字。');
+			   exit;
+			}
 			if (mb_strlen($content, 'UTF-8') > 10) {
 				replyText($sendUserId, $developerId, '对不起，您的输入有误，请重新输入，请将文字限制在10个英文字符内，请勿夹杂符号表情或敏感文字。');
 				exit;
