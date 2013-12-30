@@ -165,12 +165,10 @@ if ($msgType == 'text') {
             $imageBig->writeImage('./image/big'.$userInfo['picName']);
 
 		 }else{
-           
 			if (mb_strlen($content, 'UTF-8') > 10) {
-				replyText($sendUserId, $developerId, '不好意思，你的输入有误。请将文字限制在10个英文字符内，请勿夹杂符号表情或敏感文字。');
+				replyText($sendUserId, $developerId, '对不起，您的输入有误，请重新输入，请将文字限制在10个英文字符内，请勿夹杂符号表情或敏感文字。');
 				exit;
 			}
-
 		    $newContent  = array('$set' => array('content' => "$content", 'flg'=>'2'));
             $collection->update(array('sendUserId' => "$sendUserId", 'updateData' => date('d')),  $newContent);
 		    replyText($sendUserId, $developerId, '你的照片和文字已上传成功，红运马上送到TA！请确认你已经认真阅读过我们的<a href="http://tongyi.mei94.com/rule.html">用户条款和隐私政策</a>，回复”Y”表示同意并继续。
