@@ -120,8 +120,15 @@ if ($msgType == 'text') {
 
             $UserBigPicture = './img/big'.$userInfo['picName'];
 			$userImgBig = new Imagick($UserBigPicture);
+			$geo=$userImgBig->getImageGeometry();
 			$imageBig = new Imagick('newbigbuttom.png');
+            if($geo['height'] > $geo['width']){
+			   $image_topBig = new Imagick('chang-top.png');
+			}else{
+			   $image_topBig = new Imagick('zhen-top.png');
+			}
 			$image_topBig = new Imagick('newbigtop.png');
+
 			$userImgBig->rotateImage(new ImagickPixel('transparent'), -11.00); 
 			$imageBig->compositeImage($userImgBig, Imagick::COMPOSITE_DEFAULT, 180, 190);
 			$imageBig->compositeImage($image_topBig, Imagick::COMPOSITE_DEFAULT, 0, 0);
