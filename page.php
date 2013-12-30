@@ -25,6 +25,9 @@ img { border:none; }
 .pLine{
 	line-height:24px;
 }
+.chu{
+	font-weight:900;
+}
 </style>
 </head>
 <body>
@@ -56,7 +59,7 @@ $path = 'http://115.29.49.54/image/big'.base64_decode($_GET['id']);
 
 
 <p><img style="width:92%;" alt="" src="http://115.29.49.54/2.png" /></p>
-<p class="pLine">快关注统一冰红茶官方微信号：tongyiicetea，在对话框中上传一张祝福对象的照片（竖版或正方形），即刻为你的小伙伴们<strong>私人定制新年贺卡</strong>。</p> <br /><br />
+<p class="pLine">快关注统一冰红茶官方微信号：tongyiicetea，在对话框中上传一张祝福对象的照片（竖版或正方形），即刻为你的小伙伴们<span class="chu">私人定制新年贺卡</span>。</p> <br /><br />
 
 <?php  }  ?>
 </div>
@@ -68,7 +71,7 @@ $path = 'http://115.29.49.54/image/big'.base64_decode($_GET['id']);
 <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
         <script type="text/javascript">
         
-        var shareTxt = '千言万语不够，一个理由去跑就好。@nikerunning #跑了就懂#';
+        var shareTxt = '快关注统一冰红茶官方微信：tongyiicetea，私人定制新年贺卡，即刻获取，快来试试！＃马上你就红＃';
         var sharePic = '<?php echo $path; ?>';
         
         function sina() {
