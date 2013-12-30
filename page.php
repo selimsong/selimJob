@@ -22,6 +22,10 @@ h1 { text-align:center; }
 	font-weight:800;
 }
 img { border:none; }
+.pLine{
+	line-height:24px;
+	font-weight:bold;
+}
 </style>
 </head>
 <body>
@@ -47,11 +51,21 @@ $path = 'http://115.29.49.54/image/big'.base64_decode($_GET['id']);
 <p>@你要祝福的人，或分享至微信朋友圈、新浪微博、腾讯微博等平台，为TA们私人定制祝福，祝TA们马上走红运！</p>
 <p>赶紧定制一张新年贺卡吧！</p> <br /><br />
 <?php }else{ ?>
-<p>收到小伙伴们为你亲手炮制的贺卡是不是激动万分？</p>
-<p>赶紧长按图片，存到手机相册，留存这份难得的情谊。或分享到微信朋友圈，秀出你的惊喜！</p>
-<p>快关注统一冰红茶官方微信，你也可以亲手炮制新年贺卡。</p>
+
+<p><img style="width:92%;" alt="" src="1.png" /></p>
+<p class="pLine">收到小伙伴们为你私人定制的贺卡是不是激动万分？赶紧长按图片，存到手机相册，留存这份难得的情谊。或分享至微信朋友圈、新浪微博和腾讯微博，秀出你的惊喜！</p>
+
+
+<p><img style="width:92%;" alt="" src="2.png" /></p>
+<p class="pLine">快关注统一冰红茶官方微信号：tongyiicetea，在对话框中上传一张祝福对象的照片（竖版或正方形），即刻为你的小伙伴们私人定制新年贺卡。</p> <br /><br />
+
 <?php  }  ?>
 </div>
+
+
+
+
 </div>
+
 </body>
 </html>
