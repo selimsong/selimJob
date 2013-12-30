@@ -70,9 +70,9 @@ if ($msgType == 'image') {
 	if(!empty($h)){
 	   $height = $h;
 	}
-	if ($height > 260) {
-		$w = $width*(260/$height);
-		$im->scaleImage($w, 260, false);
+	if ($height > 220) {
+		$w = $width*(220/$height);
+		$im->scaleImage($w, 220, false);
 	}
 	$im->writeImage('./img/'.'small'.$picName);
 	$im->clear();
