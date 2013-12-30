@@ -166,8 +166,8 @@ if ($msgType == 'text') {
 
 		 }else{
            
-			if (mb_strlen($newContent, 'UTF-8') > 10) {
-				replyText($sendUserId, $developerId, '不好意思，你的输入有误。请将文字限制在10个中英文字符以内，请勿夹杂符号,表情或敏感文字。');
+			if (mb_strlen($content, 'UTF-8') > 10) {
+				replyText($sendUserId, $developerId, '不好意思，你的输入有误。请将文字限制在10个英文字符内，请勿夹杂符号表情或敏感文字。');
 				exit;
 			}
 
