@@ -124,8 +124,12 @@ if ($msgType == 'text') {
 			$imageBig = new Imagick('newbigbuttom.png');
             if(($geo['height'] - $geo['width']) > 40){
 			   $image_topBig = new Imagick('chang-top.png');
+			   $text_x = 300;
+			   $text_y = 801;
 			}else{
 			   $image_topBig = new Imagick('zhen-top.png');
+			    $text_x = 400;
+			   $text_y = 761;
 			}
 			$userImgBig->rotateImage(new ImagickPixel('transparent'), -11.00); 
 			$imageBig->compositeImage($userImgBig, Imagick::COMPOSITE_DEFAULT, 180, 190);
