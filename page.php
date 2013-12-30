@@ -31,7 +31,7 @@ $path = 'http://115.29.49.54/image/big'.base64_decode($_GET['id']);
 ?>
 <img style="width:92%;" alt="" src="<?php echo $path; ?>" />
 </div>
-<div style="width:92%;text-align:left; margin:0 auto;height:163px; ">
+<div style="width:92%;text-align:left; margin:0 auto;padding:0px 6px 0px 6px;height:163px; ">
 <?php if(!empty($_GET['id'])){ ?>
 <p>三招定制新年贺卡</p>
 <p>1: 即刻在冰红茶对话框中上传一张祝福对象的竖版照片。</p>
