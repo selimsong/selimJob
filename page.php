@@ -52,7 +52,7 @@ $path = 'http://115.29.49.54/image/big'.base64_decode($_GET['id']);
 <?php }else{ ?>
 
 <p><img style="width:92%;" alt=""  src="http://115.29.49.54/1.png" /></p>
-<p class="pLine">收到小伙伴们为你私人定制的贺卡是不是激动万分？赶紧<strong>长按图片</strong>，存到手机相册，留存这份难得的情谊。或分享至<strong>微信朋友圈、<a id="btn_sina" href="#"><img src="http://dove.u.qiniudn.com/images/btnweibo.png"></a>新浪微博</strong>和<strong><a id="btn_tencent" href="#"><img src="http://dove.u.qiniudn.com/images/btntencent.png"></a>腾讯微博</strong>，秀出你的惊喜！</p>
+<p class="pLine">收到小伙伴们为你私人定制的贺卡是不是激动万分？赶紧<strong>长按图片</strong>，存到手机相册，留存这份难得的情谊。或分享至<strong>微信朋友圈、新浪微博<a id="btn_sina" href="#"><img style="vertical-align:middle;"  src="http://dove.u.qiniudn.com/images/btnweibo.png"></a></strong>和<strong>腾讯微博<a id="btn_tencent" href="#"><img style="vertical-align:middle;" src="http://dove.u.qiniudn.com/images/btntencent.png"></a></strong>，秀出你的惊喜！</p>
 
 
 <p><img style="width:92%;" alt="" src="http://115.29.49.54/2.png" /></p>
