@@ -85,7 +85,7 @@ if ($msgType == 'image') {
 	  $collection->update(array('sendUserId' => "$sendUserId", 'updateData' => date('d')),  $newContent);
 	}
 
-    replyText($sendUserId, $developerId, '新年快乐！欢迎参加＃马上你就红＃新年贺卡制作活动，你的照片已收到！现在，请在“祝你2014马上______”的空格处写下一段祝福语（请将文字限制在10个英文字符内，请勿夹杂符号表情或敏感文字），活动时间（2013/12/31—2014/2/6）');
+    replyText($sendUserId, $developerId, '新年快乐！欢迎参加＃马上你就红＃新年贺卡私人定制活动，你的照片已收到！现在，请在“祝你2014马上______”的空格处写下一段祝福语（请将文字限制在10个英文字符内，请勿夹杂符号表情或敏感文字），活动时间（2013/12/31—2014/2/6）');
     $doc = array('status'=> '1', 'sendUserId' => "$sendUserId", 'picUrl'=> "$picUrl", 'picName' => "$picName", 'updateData' => date('d'), 'updatetime' => "$time");
 	$collection_log->insert($doc); 
 	exit();
