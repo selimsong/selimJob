@@ -16,6 +16,11 @@ background: #efefef;
 background-size: cover;}
 #container { margin:0px auto; }
 h1 { text-align:center; }
+.title{
+	font-size:18px;
+	color:#ff0000;
+	font-weight:800;
+}
 img { border:none; }
 </style>
 </head>
@@ -33,13 +38,14 @@ $path = 'http://115.29.49.54/image/big'.base64_decode($_GET['id']);
 </div>
 <div style="width:92%;text-align:left; margin:0 auto;padding:0px 8px 0px 8px;height:163px; ">
 <?php if(empty($_GET['id'])){ ?>
-<p>三招定制新年贺卡</p>
+<p class="title">三招定制新年贺卡</p>
 <p>1: 即刻在冰红茶对话框中上传一张祝福对象的竖版照片。</p>
 <p>2: 写下你对TA的祝福语。</p>
 <p>3:  获取你为TA私人定制的新年贺卡。</p>
-<p>发送或分享祝福</p>
+<br />
+<p class="title">发送或分享祝福</p>
 <p>@你要祝福的人，或分享至朋友圈、微博等平台，为TA们私人定制祝福，祝TA们马上走红运！</p>
-<p>赶紧定制一张新年贺卡吧！</p>
+<p>赶紧定制一张新年贺卡吧！</p> <br /><br />
 <?php }else{ ?>
 <p>收到小伙伴们为你亲手炮制的贺卡是不是激动万分？</p>
 <p>赶紧长按图片，存到手机相册，留存这份难得的情谊。或分享到微信朋友圈，秀出你的惊喜！</p>
