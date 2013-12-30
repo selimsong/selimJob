@@ -125,7 +125,7 @@ if ($msgType == 'text') {
             if(($geo['height'] - $geo['width']) > 10){
 			   $image_topBig = new Imagick('chang-top.png');
 			   $text_x = 122;
-			   $text_y = 840;
+			   $text_y = 700;
 			}else{
 			   $image_topBig = new Imagick('zhen-top.png');
 			   $text_x = 110;
@@ -140,7 +140,7 @@ if ($msgType == 'text') {
 			$draw->setTextEncoding('utf-8');
 			$draw->setFontSize(52);
 			$draw->setGravity(1);
-			$imageBig->annotateImage($draw, $text_x, $text_y, -11, $userInfo['content']);
+			$imageBig->annotateImage($draw, $text_x, $text_y, -12, $userInfo['content']);
 			header('Content-type: image/jpg');
             $imageBig->writeImage('./image/big'.$userInfo['picName']);
 			$doc = array('sendUserId' => "$sendUserId", 'status'=> '3', 'updateData' => date('d'), 'updatetime' => "$time");
