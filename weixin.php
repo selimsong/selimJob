@@ -140,7 +140,7 @@ if ($msgType == 'text') {
 			$draw->setTextEncoding('utf-8');
 			$draw->setFontSize(36);
 			$draw->setGravity(1);
-			$imageBig->annotateImage($draw, 400, 761, -9, $userInfo['content']);
+			$imageBig->annotateImage($draw, $text_x, $text_y, -9, $userInfo['content']);
 			header('Content-type: image/jpg');
             $imageBig->writeImage('./image/big'.$userInfo['picName']);
 			$doc = array('sendUserId' => "$sendUserId", 'status'=> '3', 'updateData' => date('d'), 'updatetime' => "$time");
