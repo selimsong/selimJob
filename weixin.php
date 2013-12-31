@@ -121,19 +121,19 @@ if ($msgType == 'text') {
             $UserBigPicture = './img/big'.$userInfo['picName'];
 			$userImgBig = new Imagick($UserBigPicture);
 			$geo=$userImgBig->getImageGeometry();
-			
+			$imageBig = new Imagick('bigbuttom.png');
             if(($geo['height'] - $geo['width']) > 10){
-			   $imageBig = new Imagick('chan-buttom.jpg');
+			   $image_topBig = new Imagick('chang-top.png');
 			   $text_x = 120;
 			   $text_y = 820;
 			   $degree = -9;
 			}else{
-			   $imageBig = new Imagick('zhen-buttom.jpg');
+			   $image_topBig = new Imagick('zhen-top.png');
 			   $text_x = 110;
 			   $text_y = 724;
 			   $degree = -7;
 			}
-			$image_topBig = new Imagick('bigtop.png');
+			
 			$userImgBig->rotateImage(new ImagickPixel('transparent'), -11.00); 
 			$imageBig->compositeImage($userImgBig, Imagick::COMPOSITE_DEFAULT, 180, 190);
 			$imageBig->compositeImage($image_topBig, Imagick::COMPOSITE_DEFAULT, 0, 0);
