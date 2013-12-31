@@ -129,7 +129,7 @@ if ($msgType == 'text') {
 			   $image_topBig = new Imagick('chang-top.png');
 			   $text_x = 108;
 			   $text_y = 820;
-			   $degree = -7;
+			   $degree = -9;
 			}else{
 			   $image_topBig = new Imagick('zhen-top.png');
 			   $text_x = 110;
