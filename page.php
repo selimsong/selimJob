@@ -43,10 +43,11 @@ $path = 'http://115.29.49.54/image/big'.base64_decode($_GET['id']);
 </div>
 <div style="width:92%;text-align:left; margin:0 auto;padding:0px 8px 0px 8px;height:163px; ">
 <?php if(empty($_GET['id'])){ ?>
-<p class="title">三招定制新年贺卡</p>
-<p>1: 即刻在冰红茶对话框中上传一张祝福对象的照片（竖版或正方形）。</p>
-<p>2: 写下你对TA的祝福语。</p>
-<p>3:  获取你为TA私人定制的新年贺卡。</p>
+<p class="title">四招定制新年贺卡</p>
+<p>1. 马上关注统一冰红茶官方微信：tongyiicetea</p>
+<p>2. 即刻在冰红茶对话框中上传一张祝福对象的照片（竖版或正方形）。</p>
+<p>3. 写下你对TA的祝福语。</p>
+<p>4. 获取你为TA私人定制的新年贺卡。</p>
 <br />
 <p class="title">发送或分享祝福</p>
 <p>@ 你要祝福的人，或分享至微信朋友圈、新浪微博、腾讯微博等平台，为TA们私人定制祝福，祝TA们新年快乐！</p>
