@@ -53,9 +53,9 @@ $path = 'http://115.29.49.54/image/big'.base64_decode($_GET['id']);
 <p>赶紧定制一张新年贺卡吧！</p> <br /><br />
 <?php }else{ ?>
 
-<p><img style="width:60%;" alt=""  src="http://115.29.49.54/1.png" /></p>
+
 <p class="pLine"> 这年头，谁还寄贺卡？当然是最懂你的我咯！你也知道好贺卡不好找，尤其是我自己做的贺卡，我要是你，肯定就<strong>长按图片</strong>，赶紧存下来了，要不然就秀一下<strong>微信朋友圈</strong>，保证点赞无数。你也可以分享到 <a id="btn_sina" href="#"><img style="vertical-align:middle;width: 10%;"  src="http://dove.u.qiniudn.com/images/btnweibo.png"></a>  <a id="btn_tencent" href="#"><img style="vertical-align:middle;width: 10%;" src="http://dove.u.qiniudn.com/images/btntencent.png"></a>
-<p><img style="width:60%;" alt="" src="http://115.29.49.54/2.png" /></p>
+
 <p class="pLine">
 什么？觉得很好玩？也想为你的小伙伴自制一张贺卡？那就关注统一冰红茶官方微信号：<span class="chu" style="color:#F00;">tongyiicetea</span>，在对话框中上传一张祝福对象的照片（竖版或正方形）。
 赶快试试吧！</p> <br /><br />
