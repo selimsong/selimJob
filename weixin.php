@@ -127,7 +127,7 @@ if ($msgType == 'text') {
 			$imageBig = new Imagick('bigbuttom.png');
             if(($geo['height'] - $geo['width']) > 10){
 			   $image_topBig = new Imagick('chang-top.png');
-			   $text_x = 115;
+			   $text_x = 110;
 			   $text_y = 820;
 			   $degree = -10;
 			}else{
