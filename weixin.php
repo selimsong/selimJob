@@ -56,6 +56,7 @@ if ($msgType == 'image') {
 	if ($_height > 800) {
 		$w = $_width*(800/$_height);
 		$im_big->scaleImage($w, 800, false);
+		$im_big->cropImage($w, 600, 0, 0);
 	}
     $im_big->writeImage('./img/'.'big'.$picName);
 	$im_big->clear();
@@ -108,7 +109,7 @@ if ($msgType == 'text') {
 			$draw = new ImagickDraw();
 			$draw->setFillColor('#f8ec00');
 			$draw->setFont('/var/www/han.TTF');
-			$draw->setTextEncoding('utf-8');
+			$draw->setTextEncoding('utf-8');   
 			$draw->setFontSize(24);
 			$draw->setGravity(1);
 			$image->annotateImage($draw, 25, 154, -8, $userInfo['content']);
