@@ -10,7 +10,7 @@ $msgId        = $xml->MsgId;
 if ($msgType == 'event') {
 	if ($xml->Event == 'subscribe') {
 			 $description = "新年到了，小伙伴们是不是按捺不住要给大伙儿发祝福呢？最酷莫过于亲手定制一张贺卡，即刻在对话框中上传一张祝福对象的照片（竖版或正方形），获取你为TA私人定制的新年贺卡。";
-	        replyTextAndImg($sendUserId, $developerId, '私人定制＃马上你就红＃新年贺卡', $description, 'http://115.29.49.54/activity.jpg', 'http://tongyi.mei94.com/page');
+	        replyTextAndImg($sendUserId, $developerId, '#心意自造#潮卡送到', $description, 'http://115.29.49.54/activity.jpg', 'http://tongyi.mei94.com/page');
 	}
 	exit();
 }
@@ -39,7 +39,7 @@ if ($msgType == 'image') {
 
 	$im_big = new Imagick('./img/'.$picName);
 	if(($width - $height) > 10){
-		 replyText($sendUserId, $developerId, '不好意思，你的输入内容有误，如果想要参与统一冰红茶 #马上你就红#新年贺卡私人定制活动，请直接上传一张祝福对象的照片（要竖版或正方形的），就可以获取你为TA私人定制的新年贺卡，快来试试！');
+		 replyText($sendUserId, $developerId, '不好意思，你的输入内容有误，如果想要参与统一冰红茶 ＃心意自造＃自制贺卡活动，请直接上传一张祝福对象的照片（要竖版或正方形的），就可以获取你为TA私人定制的新年贺卡，快来试试！');
 	     exit();
 	}
 	$h = NULL;
@@ -85,7 +85,7 @@ if ($msgType == 'image') {
 	  $collection->update(array('sendUserId' => "$sendUserId", 'updateData' => date('d')),  $newContent);
 	}
 
-    replyText($sendUserId, $developerId, '新年快乐！欢迎参加＃马上你就红＃新年贺卡私人定制活动，你的照片已收到！现在，请在“祝你2014马上______”的空格处写下一段祝福语（请将文字限制在10个英文字符内，请勿夹杂符号表情或敏感文字），活动时间（2013/12/31—2014/2/6）');
+    replyText($sendUserId, $developerId, '新年快乐！欢迎参加＃心意自造＃自制贺卡活动，你的照片已收到！现在，请用一段话写下你的祝福（请将文字限制在10个中英文字符内，请勿夹杂符号表情或敏感文字），活动时间（2013/12/31—2014/2/6）');
     $doc = array('status'=> '1', 'sendUserId' => "$sendUserId", 'picUrl'=> "$picUrl", 'picName' => "$picName", 'updateData' => date('d'), 'updatetime' => "$time");
 	$collection_log->insert($doc); 
 	exit();
@@ -116,7 +116,7 @@ if ($msgType == 'text') {
             $image->writeImage('./image/'.$userInfo['picName']);
 
             $description = "Ding——新年贺卡新鲜出炉！快进来看看！即刻发送给你要祝福的TA，或再次上传照片，即可重新定制，再为其他小伙伴送去祝福！";
-	        replyTextAndImg($sendUserId, $developerId, '#马上你就红# ，即刻给你好看', $description, 'http://115.29.49.54/image/'.$userInfo['picName'], 'http://tongyi.mei94.com/page?id='.base64_encode($userInfo['picName']));
+	        replyTextAndImg($sendUserId, $developerId, '#心意自造 #潮卡送到', $description, 'http://115.29.49.54/image/'.$userInfo['picName'], 'http://tongyi.mei94.com/page?id='.base64_encode($userInfo['picName']));
 
             $UserBigPicture = './img/big'.$userInfo['picName'];
 			$userImgBig = new Imagick($UserBigPicture);
@@ -162,8 +162,7 @@ if ($msgType == 'text') {
 
 			$doc = array('sendUserId' => "$sendUserId", 'status'=> '2', 'content'=> "$content", 'updateData' => date('d'), 'updatetime' => "$time");
 	        $collection_log->insert($doc); 
-		    replyText($sendUserId, $developerId, '你的照片和文字已上传成功，红运马上送到TA！请确认你已经认真阅读过我们的<a href="http://tongyi.mei94.com/rule.html">用户条款和隐私政策</a>，回复”Y”表示同意并继续。
-'); 
+		    replyText($sendUserId, $developerId, '你的照片和文字已上传成功，自制潮卡胜利在望！请确认你已经认真阅读过我们的<a href="http://tongyi.mei94.com/rule.html">用户条款和隐私政策</a>，回复”Y”表示同意并继续。'); 
 		 }
 	 }
 
