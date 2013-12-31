@@ -101,7 +101,7 @@ if ($msgType == 'text') {
             $UserPicture = './img/small'.$userInfo['picName'];
 			$userImg = new Imagick($UserPicture);
 			$image = new Imagick('buttom.jpg');
-			$image_top = new Imagick('top.jpg');
+			$image_top = new Imagick('top.png');
 			$userImg->rotateImage(new ImagickPixel('transparent'), -7.00); 
 			$image->compositeImage($userImg, Imagick::COMPOSITE_DEFAULT, 160, 5);
 			$image->compositeImage($image_top, Imagick::COMPOSITE_DEFAULT, 0, 0);
