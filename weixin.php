@@ -53,10 +53,12 @@ if ($msgType == 'image') {
 	if(!empty($h)){
 	   $_height = $h;
 	}
+	if ($_height > 700) {
+		$w = $_width*(700/$_height);
+		$im_big->scaleImage($w, 700, false);
+	}
 	if ($_height > 600) {
-		$w = $_width*(600/$_height);
-		$im_big->scaleImage($w, 600, false);
-		$im_big->cropImage($w, 500, 0, 0);
+		$im_big->cropImage($w, 600, 0, 0);
 	}
     $im_big->writeImage('./img/'.'big'.$picName);
 	$im_big->clear();
