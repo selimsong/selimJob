@@ -128,8 +128,8 @@ if ($msgType == 'text') {
             if(($geo['height'] - $geo['width']) > 10){
 			   $image_topBig = new Imagick('chang-top.png');
 			   $text_x = 108;
-			   $text_y = 820;
-			   $degree = -8.60;
+			   $text_y = 818;
+			   $degree = -8.64;
 			}else{
 			   $image_topBig = new Imagick('zhen-top.png');
 			   $text_x = 110;
