@@ -100,7 +100,7 @@ if ($msgType == 'text') {
             $userInfo = $collection->findOne(array('sendUserId'=> "$sendUserId", 'updateData' => date('d')));
             $UserPicture = './img/small'.$userInfo['picName'];
 			$userImg = new Imagick($UserPicture);
-			$image = new Imagick('buttom.png');
+			$image = new Imagick('buttom.jpg');
 			$image_top = new Imagick('top.png');
 			$userImg->rotateImage(new ImagickPixel('transparent'), -7.00); 
 			$image->compositeImage($userImg, Imagick::COMPOSITE_DEFAULT, 160, 5);
