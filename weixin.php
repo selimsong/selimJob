@@ -39,7 +39,8 @@ if ($msgType == 'image') {
 
 	$im_big = new Imagick('./img/'.$picName);
 	if(($width - $height) > 10){
-		 replyText($sendUserId, $developerId, '不好意思，你的输入内容有误，如果想要参与统一冰红茶 ＃心意自造＃自制贺卡活动，请直接上传一张祝福对象的照片（要竖版或正方形的），就可以获取你为TA私人定制的新年贺卡，快来试试！');
+		// replyText($sendUserId, $developerId, '不好意思，你的输入内容有误，如果想要参与统一冰红茶 ＃心意自造＃自制贺卡活动，请直接上传一张祝福对象的照片（要竖版或正方形的），就可以获取你为TA私人定制的新年贺卡，快来试试！');
+		 replyDoubleTextAndImg($toUserName, $fromUserName);
 	     exit();
 	}
 	$h = NULL;
@@ -96,7 +97,11 @@ if ($msgType == 'image') {
 
 if ($msgType == 'text') {
      $content      = $xml->Content;
-	 
+
+	 if("刮" == $content){
+	    replyNewText($sendUserId, $developerId);
+	 }
+
 	 if($_count>0){
 		 if("Y" == $content  || 'y' == $content){
             
@@ -240,6 +245,49 @@ function replyDoubleTextAndImg($toUserName, $fromUserName){
 					<item>
 					<Title><![CDATA[新年来袭，#刮起红运疯#]]></Title> 
 					<Description><![CDATA[新年来袭，#刮起红运疯#]]></Description>
+					<PicUrl><![CDATA[http://115.29.49.54/eventimg/sc.jpg]]></PicUrl>
+					<Url><![CDATA[http://115.29.49.54/scratch/]]></Url>
+					</item>
+					<item>
+					<Title><![CDATA[还有什么比收到【自制祝福贺卡】更让人感动的么？]]></Title> 
+					<Description><![CDATA[还有什么比收到【自制祝福贺卡】更让人感动的么？]]></Description>
+					<PicUrl><![CDATA[http://115.29.49.54/eventimg/zu.jpg]]></PicUrl>
+					<Url><![CDATA[http://115.29.49.54/scratch/]]></Url>
+					</item>
+					</Articles>
+               </xml>";			
+	$resultStr = sprintf($textTpl, $toUserName, $fromUserName, time());
+  
+	echo $resultStr;
+}
+function replyNewText($toUserName, $fromUserName){
+
+      $textTpl = "<xml>
+					<ToUserName><![CDATA[%s]]></ToUserName>
+					<FromUserName><![CDATA[%s]]></FromUserName>
+					<CreateTime>%s</CreateTime>
+					<MsgType><![CDATA[text]]></MsgType>
+					<Content><![CDATA[%s]]></Content>
+					</Articles>
+               </xml>";			
+	$description = '<a href="http://115.29.49.54/scratch/index.php?uid='.$toUserName.'">点击链接即刻开始!</a>';
+	$resultStr = sprintf($textTpl, $toUserName, $fromUserName, time(), $description);
+  
+	echo $resultStr;
+}
+
+function replyDoubleTextAndImg($toUserName, $fromUserName){
+
+      $textTpl = "<xml>
+	                <ToUserName><![CDATA[%s]]></ToUserName>
+	                <FromUserName><![CDATA[%s]]></FromUserName>
+                    <CreateTime>%s</CreateTime>
+                    <MsgType><![CDATA[news]]></MsgType>
+					<ArticleCount>2</ArticleCount>
+                    <Articles>
+					<item>
+					<Title><![CDATA[新年来袭，#刮起红运疯#！输入【刮】即刻获取刮刮卡！]]></Title> 
+					<Description><![CDATA[新年来袭，#刮起红运疯#！输入【刮】即刻获取刮刮卡！]]></Description>
 					<PicUrl><![CDATA[http://115.29.49.54/eventimg/sc.jpg]]></PicUrl>
 					<Url><![CDATA[http://115.29.49.54/scratch/]]></Url>
 					</item>
