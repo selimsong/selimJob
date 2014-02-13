@@ -99,7 +99,7 @@ if ($msgType == 'image') {
 if ($msgType == 'text') {
      $content      = $xml->Content;
 
-	 if("刮" == $content){
+	 if("刮" == $content || strpos($content, '刮')){
 	    replyNewText($sendUserId, $developerId);
 	 }
 
