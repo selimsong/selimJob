@@ -270,13 +270,13 @@ function replyDoubleTextAndImg($toUserName, $fromUserName){
 					<Title><![CDATA[新年来袭，#刮起红运疯#！输入【刮】即刻获取刮刮卡！]]></Title> 
 					<Description><![CDATA[新年来袭，#刮起红运疯#！输入【刮】即刻获取刮刮卡！]]></Description>
 					<PicUrl><![CDATA[http://115.29.49.54/eventimg/sc.jpg]]></PicUrl>
-					<Url><![CDATA[http://115.29.49.54/scratch/]]></Url>
+					<Url><![CDATA[http://mp.weixin.qq.com/s?__biz=MjM5NzIyMzQyMA==&mid=200047639&idx=1&sn=2a18017356bc3c81f2b2db9b668e1ee5#rd]]></Url>
 					</item>
 					<item>
 					<Title><![CDATA[还有什么比收到【自制祝福贺卡】更让人感动的么？]]></Title> 
 					<Description><![CDATA[还有什么比收到【自制祝福贺卡】更让人感动的么？]]></Description>
 					<PicUrl><![CDATA[http://115.29.49.54/eventimg/zu.jpg]]></PicUrl>
-					<Url><![CDATA[http://115.29.49.54/scratch/]]></Url>
+					<Url><![CDATA[http://mp.weixin.qq.com/s?__biz=MjM5NzIyMzQyMA==&mid=200047639&idx=2&sn=f9219ae6d119ab8067e2b0c4dda92bb9#rd]]></Url>
 					</item>
 					</Articles>
                </xml>";			
