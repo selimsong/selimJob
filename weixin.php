@@ -101,6 +101,7 @@ if ($msgType == 'text') {
 
 	 if("刮" == $content || strpos($content, '刮')){
 	    replyNewText($sendUserId, $developerId);
+		exit();
 	 }
 
 	 if($_count>0){
@@ -174,7 +175,13 @@ if ($msgType == 'text') {
 	        //$collection_log->insert($doc); 
 		    replyText($sendUserId, $developerId, '你的照片和文字已上传成功，自制潮卡胜利在望！请确认你已经认真阅读过我们的<a href="http://tongyi.mei94.com/rule.html">用户条款和隐私政策</a>，回复”Y”表示同意并继续。'); 
 		 }
+		 exit();
 	 }
+
+  
+
+	$description = "新年到了，小伙伴们是不是按捺不住要给大伙儿发祝福呢？最酷莫过于亲手定制一张贺卡，即刻在对话框中上传一张祝福对象的照片（竖版或正方形），获取你为TA私人定制的新年贺卡。";
+    replyDoubleTextAndImg($sendUserId, $developerId);
 
   exit();
 }
